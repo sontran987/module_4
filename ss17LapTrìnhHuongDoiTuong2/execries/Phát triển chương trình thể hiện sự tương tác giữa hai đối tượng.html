@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Tập</title>
+</head>
+<body>
+<button id="swtn" onclick="on()">Bật</button>
+<p id="result"></p>
+<script>
+    class Lamp {
+        constructor(status) {
+            this.status = status;
+        }
+
+        turnOn() {
+            this.status = true;
+            return " Đèn Bật";
+        }
+
+        turnOff() {
+            this.status = false;
+            return "Đèn Tắt";
+        }
+
+    }
+
+    class SwitchButton {
+        constructor(lamp, status) {
+            this.status = status;
+            this.lamp = lamp;
+        }
+        connectToLamp(lamp){
+            this.lamp=lamp;
+        }
+
+        switchOff() {
+            this.lamp.turnOff();
+            return this.status = false;
+        }
+
+        switchOn() {
+            this.lamp.turnOn();
+            return this.status = true;
+        }
+    }
+
+    let electricLamp1 = new Lamp(false);
+    let switchButton1 = new SwitchButton(electricLamp1, false);
+
+    function on() {
+        if (!switchButton1.status) {
+            switchButton1.switchOn();
+            document.getElementById("swtn").innerText = "Tắt";
+            document.getElementById("result").innerHTML = electricLamp1.turnOn();
+
+        }else{
+            switchButton1.switchOff();
+            document.getElementById("swtn").innerText="Bật"
+            document.getElementById("result").innerHTML = electricLamp1.turnOff();
+
+        }
+    }
+
+    function off() {
+
+    }
+</script>
+</body>
+</html>
