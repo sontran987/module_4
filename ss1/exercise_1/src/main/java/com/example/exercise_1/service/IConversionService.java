@@ -1,5 +1,5 @@
 package com.example.exercise_1.service;
 
-public interface IChuyenDoiTienTe {
+public interface IConversionService {
     double calculate(double number, double exchange);
 }
