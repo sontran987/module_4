@@ -21,7 +21,7 @@ public class PersonalComputerController {
 
     @PostMapping("/calculate")
     public String computer(@RequestParam(value = "number1", required = false) Double number1, @RequestParam(value = "number2", required = false) Double number2,
-                           @RequestParam(value = "calculate", required = false) String calculate, RedirectAttributes redirectAttributes) {
+                           @RequestParam(value = "calcula   te", required = false) String calculate, RedirectAttributes redirectAttributes) {
         String message = "Result: ";
         if (number2 == 0.0 && calculate.equals("divi")) {
             message = "No result";
