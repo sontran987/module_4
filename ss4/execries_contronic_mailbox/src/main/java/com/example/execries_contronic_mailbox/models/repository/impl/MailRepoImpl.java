@@ -6,12 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public class MailRepoImpl implements IMailRepository {
     private static List<Mail> list = new ArrayList<>();
-    private static List<String> languages= new ArrayList<>();
-    private static List<Integer> pageSizes=new ArrayList<>();
-    static{
+    private static List<String> languages = new ArrayList<>();
+    private static List<Integer> pageSizes = new ArrayList<>();
+
+    static {
         pageSizes.add(5);
         pageSizes.add(10);
         pageSizes.add(15);
@@ -22,8 +24,9 @@ public class MailRepoImpl implements IMailRepository {
         languages.add("Vietnamese");
         languages.add("Japanese");
         languages.add("Chinese");
-        list.add(new Mail(1,"English",5,true,"thanhson"));
+        list.add(new Mail(1, "English", 5, true, "thanhson"));
     }
+
     @Override
     public List<Mail> display() {
         return list;
@@ -45,14 +48,14 @@ public class MailRepoImpl implements IMailRepository {
         for (int i = 0; i < list.size(); i++) {
             mail = list.get(i);
         }
-        return mail ;
+        return mail;
     }
 
     @Override
     public void edit(Mail mail) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getId()== mail.getId()){
-                list.set(i,mail);
+            if (list.get(i).getId() == mail.getId()) {
+                list.set(i, mail);
                 break;
             }
         }

@@ -15,25 +15,27 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class MailBoxController {
     @Autowired
     private IMailService mailService;
+
     @GetMapping("")
-    public String home(Model model){
-        model.addAttribute("list",mailService.display());
+    public String home(Model model) {
+        model.addAttribute("list", mailService.display());
         return "index";
     }
 
     @GetMapping("/mailbox")
-    public String showFormEdit(Model model){
+    public String showFormEdit(Model model) {
         Mail mail = mailService.showFormEdit();
-        model.addAttribute("mail",mail);
-        model.addAttribute("languages",mailService.displayLang());
-        model.addAttribute("pages",mailService.displayPage());
+        model.addAttribute("mail", mail);
+        model.addAttribute("languages", mailService.displayLang());
+        model.addAttribute("pages", mailService.displayPage());
         return "showFormEdit";
     }
+
     @PostMapping("/edit")
-    public String edit(@ModelAttribute Mail mail, RedirectAttributes redirectAttributes ){
+    public String edit(@ModelAttribute Mail mail, RedirectAttributes redirectAttributes) {
         mailService.edit(mail);
         String message = "update success";
-        redirectAttributes.addFlashAttribute("msg",message);
+        redirectAttributes.addFlashAttribute("msg", message);
         return "redirect:/";
     }
 }

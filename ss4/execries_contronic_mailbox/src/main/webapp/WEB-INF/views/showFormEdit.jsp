@@ -67,8 +67,8 @@
         <tr>
             <td></td>
             <td>
-<%--                <button type="submit">update</button>--%>
-<%--                <a href="/"><button type="button">cancel</button></a>--%>
+                    <%--                <button type="submit">update</button>--%>
+                    <%--                <a href="/"><button type="button">cancel</button></a>--%>
                 <form:button> update</form:button>
             </td>
 

@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface IMailRepository {
     List<Mail> display();
+
     List<String> displayLang();
+
     List<Integer> displayPage();
+
     Mail showFormEdit();
+
     void edit(Mail mail);
 
 }
