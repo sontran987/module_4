@@ -23,9 +23,13 @@ public class ProductController {
     }
     @GetMapping("/showFormEdit/{id}")
     public String showFormEdit(@PathVariable int id, Model model){
-        model.addAttribute("products",productService.getProductById(id));
-        return "edit";
-
+        if (productService.getProductById(id)!= null){
+            model.addAttribute("products",productService.getProductById(id));
+            return "edit";
+        }else {
+            model.addAttribute("products",productService.display());
+            return "display";
+        }
     }
     @PostMapping("/edit")
     public String edit(@ModelAttribute Product product, RedirectAttributes redirectAttributes){
@@ -36,8 +40,13 @@ public class ProductController {
     }
     @GetMapping("/showDetail/{id}")
     public String showDetail(@PathVariable int id, Model model){
+        if (productService.getProductById(id)!= null){
         model.addAttribute("products",productService.getProductById(id));
         return "detail";
+        }else {
+            model.addAttribute("products",productService.display());
+            return "display";
+        }
 
     }
     @GetMapping("/delete/{id}")
