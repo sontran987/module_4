@@ -12,7 +12,7 @@ public class ConnectionUtils {
     private static EntityManager entityManager;
     static {
         try{
-            sessionFactory = new Configuration().configure("WEB-INF/hibernate.conf.xml").buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.conf.xml").buildSessionFactory();
             entityManager = sessionFactory.createEntityManager();
         }catch (HibernateException e){
             e.printStackTrace();

@@ -10,18 +10,18 @@ public class Product {
     private int id;
     private String name;
     private double price;
-    private String describe;
+    private String describes;
     private String producer;
 
 
     public Product() {
     }
 
-    public Product(int id, String name, double price, String describe, String producer) {
+    public Product(int id, String names, double price, String describes, String producer) {
         this.id = id;
-        this.name = name;
+        this.name = names;
         this.price = price;
-        this.describe = describe;
+        this.describes = describes;
         this.producer = producer;
     }
 
@@ -49,12 +49,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescribes() {
+        return describes;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescribes(String describes) {
+        this.describes = describes;
     }
 
     public String getProducer() {
@@ -64,6 +64,4 @@ public class Product {
     public void setProducer(String producer) {
         this.producer = producer;
     }
-
-
 }
