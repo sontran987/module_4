@@ -1,6 +1,7 @@
 package com.example.execrise_blog_app_extend.model.service.impl;
 
 import com.example.execrise_blog_app_extend.model.model.Blog;
+import com.example.execrise_blog_app_extend.model.model.Category;
 import com.example.execrise_blog_app_extend.model.repository.IBlogRepository;
 import com.example.execrise_blog_app_extend.model.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -48,8 +48,8 @@ public class BlogServiceImpl implements IBlogService {
     }
 
     @Override
-    public Page<Blog> search(Pageable pageable, String name, Integer idCategory) {
-        return blogRepository.findByTitle(pageable,name,idCategory);
+    public Page<Blog> search(Pageable pageable, String name, Category category) {
+        return blogRepository.findBlogByTitleContainsAndCategory(name, category, pageable);
     }
 }
 

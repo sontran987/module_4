@@ -1,6 +1,7 @@
 package com.example.execrise_blog_app_extend.controller;
 
 import com.example.execrise_blog_app_extend.model.model.Blog;
+import com.example.execrise_blog_app_extend.model.model.Category;
 import com.example.execrise_blog_app_extend.model.service.IBlogService;
 import com.example.execrise_blog_app_extend.model.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,15 +89,13 @@ public class BlogController {
 
     @PostMapping("/search")
     public String search(@RequestParam(value = "search", required = false) String title,
-                         @RequestParam(value = "category", required = false) Integer idCategory,
+                         @RequestParam(value = "category", required = false)Category category,
                          @PageableDefault(size = 3, sort = "id", direction = Sort.Direction.ASC) Pageable pageable
-                         ,Model model) {
-        if (idCategory==null){
-            model.addAttribute("blogList", blogService.displayBlog(pageable));
-            model.addAttribute("category", categoryService.displayCategory());
-            return "display";
+                         , Model model, RedirectAttributes redirectAttributes) {
+        if(title == "" && category == null){
+            return "redirect:/";
         }
-        model.addAttribute("blogList", blogService.search(pageable,title, idCategory));
+        model.addAttribute("blogList", blogService.search(pageable,title, category));
         model.addAttribute("category", categoryService.displayCategory());
         return "display";
     }
