@@ -13,7 +13,7 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    @RequestMapping("")
+    @GetMapping("")
     public String home(Model model){
         model.addAttribute("products",productService.display());
         return "display";

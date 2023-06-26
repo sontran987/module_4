@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create">Create Song</a>
+<table>
+    <tr>
+        <td><label>STT </label></td>
+        <td>Name</td>
+        <td>Artist</td>
+        <td>Kind of music</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    <tr th:each="s, item : ${song}">
+        <td th:text="${item.count}"></td>
+        <td th:text="${s.nameSong}"></td>
+        <td th:text="${s.artist}"></td>
+        <td th:text="${s.kindOfMusic}"></td>
+        <td><a th:href="@{/update/{id}(id=${s.id})}">Update</a></td>
+        <td><a th:href="@{/delete/{id}(id=${s.id})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
