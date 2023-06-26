@@ -45,12 +45,35 @@ public class SongController {
         return "redirect:";
     }
     @GetMapping("/update/{id}")
-    public String showFormUpdate(@PathVariable Integer id, Model model){
+    public String showFormUpdate(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes){
         if (songService.detailSong(id) == null){
-            model.addAttribute("song",songService.displaySong());
-            return "display";
+            return "redirect:/";
         }
         model.addAttribute("song",songService.detailSong(id));
         return "update";
+    }
+    @PostMapping("/update")
+    public String update(@Valid @ModelAttribute SongDto songDto, BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes, Model model){
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("song",songDto);
+            return "update";
+        }if (songService.detailSong(songDto.getId())==null){
+            model.addAttribute("song",songDto);
+            return "update";
+        }
+        Song song = new Song();
+        BeanUtils.copyProperties(songDto,song);
+        songService.editSong(song);
+        return "redirect:";
+    }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id,RedirectAttributes redirectAttributes){
+        if (songService.detailSong(id)==null){
+            return "redirect:/";
+        }
+        songService.deleteSong(id);
+        return "redirect:";
     }
 }

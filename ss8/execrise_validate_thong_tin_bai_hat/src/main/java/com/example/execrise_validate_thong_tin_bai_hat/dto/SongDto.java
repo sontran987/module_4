@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class SongDto implements Validator {
+    private int id;
     @NotBlank
     @Size(max = 800)
     @Pattern(regexp = "^[\\w\\s]+$", message = "Don't have  @ ; , . = - + ")
@@ -24,7 +25,16 @@ public class SongDto implements Validator {
     public SongDto() {
     }
 
-    public SongDto(String nameSong, String artist, String kindOfMusic) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public SongDto(int id, String nameSong, String artist, String kindOfMusic) {
+        this.id = id;
         this.nameSong = nameSong;
         this.artist = artist;
         this.kindOfMusic = kindOfMusic;

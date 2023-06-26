@@ -7,28 +7,29 @@
 <body>
 <h3>Create</h3>
 <form action="/update" method="post" th:object="${song}">
+    <input hidden th:field="*{id}">
     <table>
         <tr>
             <td>Name:</td>
             <td>
                 <input type="text" th:field="*{nameSong}"/>
-                <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{nameSong}"></p>
+                <p style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></p>
             </td>
         </tr>
 
         <tr>
-            <td>Singer:</td>
+            <td>Artist:</td>
             <td>
                 <input type="text" th:field="*{artist}"/>
-                <p style="color: red" th:if="${#fields.hasErrors('singer')}" th:errors="*{artist}"></p>
+                <p style="color: red" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></p>
             </td>
         </tr>
 
         <tr>
-            <td>Category:</td>
+            <td>Kind of music:</td>
             <td>
                 <input type="text" th:field="*{kindOfMusic}"/>
-                <p style="color: red" th:if="${#fields.hasErrors('category')}" th:errors="*{kindOfMusic}"></p>
+                <p style="color: red" th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}"></p>
             </td>
         </tr>
     </table>

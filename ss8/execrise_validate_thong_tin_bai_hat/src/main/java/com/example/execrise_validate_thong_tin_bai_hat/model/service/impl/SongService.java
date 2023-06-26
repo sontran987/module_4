@@ -32,7 +32,7 @@ public class SongService implements ISongService {
     @Override
     public boolean deleteSong(Integer id) {
         songRepository.isDelete(id);
-        return false;
+        return true;
     }
 
     @Override
