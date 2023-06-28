@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+</head>
+<body>
+<a href="/create">
+    Create Book
+</a>
+
+<a href="/orders/display">show borrow book</a>
+<table>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Amount</th>
+        <th>Borrow</th>
+    </tr>
+    <tr th:each="book, item : ${book}">
+        <td th:text="${item.count}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.amount}"></td>
+        <td>
+            <a th:href="@{/orders/add/{id}(id=${book.id})}">Borrow</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

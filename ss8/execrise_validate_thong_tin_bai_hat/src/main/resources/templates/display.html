@@ -15,7 +15,7 @@
         <td>Update</td>
         <td>Delete</td>
     </tr>
-    <tr th:each="s, item : ${song}">
+    <tr th:each="s, item : ${song} " th:if="${!s.isFlagDelete()}">
         <td th:text="${item.count}"></td>
         <td th:text="${s.nameSong}"></td>
         <td th:text="${s.artist}"></td>

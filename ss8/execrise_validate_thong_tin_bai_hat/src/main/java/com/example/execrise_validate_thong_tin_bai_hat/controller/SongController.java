@@ -22,6 +22,7 @@ public class SongController {
     private ISongService songService;
     @GetMapping("")
     public String home(Model model){
+
         model.addAttribute("song",songService.displaySong());
         return "display";
     }
@@ -74,6 +75,6 @@ public class SongController {
             return "redirect:/";
         }
         songService.deleteSong(id);
-        return "redirect:";
+        return "redirect:/";
     }
 }

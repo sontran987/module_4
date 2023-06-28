@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+<form action="/orders/giveBack" method="post" th:object="${order}">
+    <input type="text"  th:field="*{codeBorrowBook}">
+    <button type="submit">Give back</button>
+    <button><a href="/">Back</a></button>
+</form>
+<table>
+    <tr>
+        <th>STT</th>
+        <th>Code Borrow Book</th>
+        <th>Name Book</th>
+    </tr>
+    <tr th:each="order, item : ${borrow}" th:if="${!order.isFlagDelete()}">
+        <td th:text="${item.count}"></td>
+        <td th:text="${order.codeBorrowBook}"></td>
+        <td th:text="${order.book.name}"></td>
+    </tr>
+</table>
+</body>
+</html>

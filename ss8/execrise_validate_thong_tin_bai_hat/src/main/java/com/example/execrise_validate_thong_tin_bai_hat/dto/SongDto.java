@@ -21,6 +21,23 @@ public class SongDto implements Validator {
     @Size(max = 1000)
     @Pattern(regexp = "^([\\w\\d\\s]+[,]*)+$", message = "Don't have  @ ; , . = - + ")
     private String kindOfMusic;
+    private boolean isFlagDelete;
+
+    public SongDto(int id, String nameSong, String artist, String kindOfMusic, boolean isFlagDelete) {
+        this.id = id;
+        this.nameSong = nameSong;
+        this.artist = artist;
+        this.kindOfMusic = kindOfMusic;
+        this.isFlagDelete = isFlagDelete;
+    }
+
+    public boolean isFlagDelete() {
+        return isFlagDelete;
+    }
+
+    public void setFlagDelete(boolean flagDelete) {
+        isFlagDelete = flagDelete;
+    }
 
     public SongDto() {
     }
