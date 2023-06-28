@@ -10,6 +10,9 @@
     <button type="submit">Give back</button>
     <button><a href="/">Back</a></button>
 </form>
+<th:block th:if="${msg}">
+    <p th:text="${msg}"></p>
+</th:block>
 <table>
     <tr>
         <th>STT</th>

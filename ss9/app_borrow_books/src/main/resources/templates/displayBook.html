@@ -8,8 +8,10 @@
 <a href="/create">
     Create Book
 </a>
-
 <a href="/orders/display">show borrow book</a>
+<th:block th:if="${msg}">
+    <p th:text="${msg}"></p>
+</th:block>
 <table>
     <tr>
         <th>STT</th>

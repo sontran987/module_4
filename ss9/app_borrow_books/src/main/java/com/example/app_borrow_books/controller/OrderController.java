@@ -28,10 +28,13 @@ public class OrderController {
     }
 
     @GetMapping("/add/{id}")
-    public String showBrrowBook(@PathVariable Integer id, Model model) {
+    public String showBrrowBook(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) {
         if (bookService.findById(id) == null) {
             model.addAttribute("book", bookService.display());
             return "displayBook";
+        } else if (bookService.findById(id).getAmount() <= 0) {
+            redirectAttributes.addFlashAttribute("msg","so luong sach da het");
+            return "redirect:/";
         }
         String code = orderService.findByCode();
         Order order = new Order(code, bookService.findById(id));
@@ -47,7 +50,7 @@ public class OrderController {
             orderService.delete(orderService.findByCode(order.getCodeBorrowBook()).getId());
             return "redirect:/orders/display";
         }
-
+        redirectAttributes.addFlashAttribute("msg","ma muon sach khong dung");
         return "redirect:/orders/display";
     }
 
