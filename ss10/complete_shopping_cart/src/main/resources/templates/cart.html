@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng của bạn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<h2>Giỏ hàng của bạn</h2>
+<p><a href="/">Quay về trang chính</a></p>
+<p style="color: red" th:text="${msg}"></p>
+<table border="1">
+    <tr>
+        <th>Tên sản phẩm</th>
+        <th>Ảnh</th>
+        <th>Số lượng</th>
+        <th>Giá</th>
+    </tr>
+    <form th:action="@{/}" th:object="${cart}" method="post">
+        <h3>Tổng số mặt hàng: <span th:text="${cart.size()}"></span></h3>
+        <h3>Tổng số sản phẩm: <span th:text="${quantity}"></span></h3>
+
+        <tr th:each="carts : ${cart}">
+            <td th:text="${carts.product.name}"></td>
+            <td><img th:src="${carts}" alt="" th:width="70"></td>
+            <td>
+                <a class="m-2" id="delete_button" style="text-decoration: none; color: black"
+                   th:href="@{/delete/{id}(id=${carts.id})}"
+                   th:text="${'Xóa'}"></a>
+                <a class="m-2" id="decrease_button" style="text-decoration: none; color: black"
+                   th:href="@{/down/{id}(id=${carts.id})}"
+                   th:text="${'Giảm'}"></a>
+                <span th:text="${carts.quantity}"></span>
+                <a class="m-2" id="increase_button" style="text-decoration: none; color: black"
+                   th:href="@{/add/{id}(id=${carts.id})}"
+                   th:text="${'Tăng'}"></a>
+            </td>
+            <td th:text="${carts.product.price}"></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td th:text="${carts}"></td>
+        </tr>
+        <a th:href="@{/payment}" class="btn btn-primary btn-sm">
+            Thanh toán
+        </a>
+    </form>
+</table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>

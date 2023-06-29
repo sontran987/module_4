@@ -32,9 +32,10 @@ public class OrderController {
         if (bookService.findById(id) == null) {
             model.addAttribute("book", bookService.display());
             return "displayBook";
-        } else if (bookService.findById(id).getAmount() <= 0) {
+        }
+        else if (bookService.findById(id).getAmount() <1 ) {
             redirectAttributes.addFlashAttribute("msg","so luong sach da het");
-            return "redirect:/";
+            return "500";
         }
         String code = orderService.findByCode();
         Order order = new Order(code, bookService.findById(id));
