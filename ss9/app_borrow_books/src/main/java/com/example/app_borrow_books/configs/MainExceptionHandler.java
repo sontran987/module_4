@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class MainExceptionHandler extends Exception {
-    @ExceptionHandler
+    @ExceptionHandler(Exception.class)
     public String get500Page(Exception ex, Model model) {
         model.addAttribute("msg", ex.getMessage());
         return "/500";
