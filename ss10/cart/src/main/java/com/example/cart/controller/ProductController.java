@@ -19,7 +19,7 @@ public class ProductController {
     public Cart setupCart(){
         return new Cart();
     }
-    @GetMapping("/shop")
+    @GetMapping("")
     public ModelAndView showShop(){
         ModelAndView modelAndView = new ModelAndView("/shop");
         modelAndView.addObject("products",iProductService.findAll());

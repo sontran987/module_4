@@ -18,7 +18,6 @@
     <tr>
         <th>No</th>
         <th>Tên</th>
-        <th>Ảnh</th>
         <th>Giá</th>
         <th>Giảm giá</th>
         <th>Chi tiết</th>
@@ -30,7 +29,6 @@
     <tr th:each="product, static: ${products}">
         <td th:text="${static.count}"></td>
         <td th:text="${product.name}"></td>
-        <td><img  th:src="${product.img}" alt="" th:width="100"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.discount}"></td>
         <td th:text="${product.description}"></td>
