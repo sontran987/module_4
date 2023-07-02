@@ -29,7 +29,6 @@ public class UserController {
         }
         Users userEntity = new Users();
         BeanUtils.copyProperties(userDto,userEntity);
-
         model.addAttribute("user",userEntity);
         return "result";
     }

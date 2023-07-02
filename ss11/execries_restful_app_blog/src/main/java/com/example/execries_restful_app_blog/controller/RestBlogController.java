@@ -44,7 +44,7 @@ public class RestBlogController {
         return new ResponseEntity<>( this.blogService.detailBlog(id),HttpStatus.OK);
     }
 
-    @PostMapping("/blog/add")
+    @PostMapping("api/blog/add")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody Category category){
         if (categoryService.detailCategory(category.getId())==null){
