@@ -31,10 +31,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-
     let count = 0;
     let limit = 20;
-
     function getListBlog() {
         debugger
         $.ajax({
@@ -76,15 +74,15 @@
     })
 
     function onSearchBlog() {
-        const nameBlog = $("#nameBlog").val();
-        var url = 'http://localhost:8080/api/blog/search' + nameBlog;
+        const nameBlog = $("#nameBlog").val().trim();
+        var url = 'http://localhost:8080/api/blog/search';
         $.ajax({
             url: url,
             type: 'GET',
-            // data:JSON.stringify(nameBlog),
-            // headers: {
-            //     'Content-Type': 'application/json'
-            // },
+            data:JSON.stringify(nameBlog),
+            headers: {
+                'Content-Type': 'application/json'
+            },
             success: function (data) {
                 console.log(JSON.stringify(data));
                 let blogStr = '';

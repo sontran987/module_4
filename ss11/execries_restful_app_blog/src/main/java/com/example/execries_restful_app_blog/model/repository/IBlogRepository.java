@@ -17,7 +17,7 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 //    Page<Blog> findByTitle(Pageable pageable, @Param(value = "title") String name, @Param(value = "id") Integer idCategory);
     Page<Blog> findBlogByTitleContainsOrCategory(String title, Category category , Pageable pageable );
     @Query(value = "SELECT * FROM blog as b WHERE b.title like concat('%',:title,'%')", nativeQuery = true)
-    List<Blog> findBlogByTitle(@Param(value = "title") String title);
+    List<Blog> findBlogByTitles(@Param(value = "title") String title);
     List<Blog> findBlogByFlagDeleteFalse();
     @Modifying
     @Transactional

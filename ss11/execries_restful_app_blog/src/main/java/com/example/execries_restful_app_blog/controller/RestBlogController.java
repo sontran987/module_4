@@ -54,10 +54,10 @@ public class RestBlogController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @GetMapping("/api/blog/search/{nameBlog}")
-    public ResponseEntity<List<Blog>>search(@PathVariable String nameBlog){
+    @GetMapping("/api/blog/search")
+    public ResponseEntity<List<Blog>>search(@RequestParam(value = "nameBlog", required = false) String nameBlog){
         if (blogService.searchBlogName(nameBlog)==null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(this.blogService.displayBlog(),HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(this.blogService.searchBlogName(nameBlog),HttpStatus.OK);
     }

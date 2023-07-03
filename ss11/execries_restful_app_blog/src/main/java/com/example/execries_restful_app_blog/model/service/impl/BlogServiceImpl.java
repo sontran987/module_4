@@ -59,7 +59,7 @@ public class BlogServiceImpl implements IBlogService {
 
     @Override
     public List<Blog> searchBlogName(String name) {
-        return blogRepository.findBlogByTitle(name);
+        return blogRepository.findBlogByTitles(name);
     }
 
     @Override
