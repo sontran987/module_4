@@ -13,12 +13,6 @@
   <a th:href="@{/add}" class="btn btn-primary mb-2">Create</a>
   <form th:action="@{/search}" method="post" >
     <input type="text" name="search" placeholder="Search by name"/>
-    <select name="category">
-      <option value="">--choose category--</option>
-      <option th:each="cate : ${category}"
-              th:value="${cate.id}" th:text="${cate.nameCategory}">
-      </option>
-    </select>
     <button>
 Search
     </button>

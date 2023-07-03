@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<h1 class="text-center">List Blog</h1>
+<div>
+    <form>
+        <input type="text" name="search" placeholder="Search by name" id="nameBlog"/>
+        <button type="button" onclick="onSearchBlog()">
+            Search
+        </button>
+    </form>
+</div>
+<table class="table container-fluid">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Title</th>
+        <th>Heading</th>
+        <th>Date Submitted</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody id="listBlog">
+    </tbody>
+</table>
+<button id="loadMore">download more</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    let count = 0;
+    let limit = 20;
+
+    function getListBlog() {
+        debugger
+        $.ajax({
+            url: 'http://localhost:8080/blog',
+            type: 'GET',
+            data: {
+                _start: count,
+                _limit: limit
+            },
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                let blogStr = '';
+                for (let blog of data.slice(count, count + limit)) {
+                    blogStr += `
+                    <tr>
+                    <td>${blog.id}</td>
+                    <td>${blog.title}</td>
+                    <td>${blog.heading}</td>
+                    <td>${blog.dateSubmitted}</td>
+                    <td>${blog.category.nameCategory}</td>
+                    </tr>
+                    `;
+                }
+                $("#listBlog").append(blogStr);
+                count += limit;
+            },
+            error: function (error) {
+                //todo
+                console.log(error)
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        getListBlog();
+    })
+    $("#loadMore").on("click", function () {
+        getListBlog();
+    })
+
+    function onSearchBlog() {
+        const nameBlog = $("#nameBlog").val();
+        var url = 'http://localhost:8080/api/blog/search' + nameBlog;
+        $.ajax({
+            url: url,
+            type: 'GET',
+            // data:JSON.stringify(nameBlog),
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // },
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                let blogStr = '';
+                for (let blog of data.slice(count, count + limit)) {
+                    blogStr += `
+                    <tr>
+                    <td>${blog.id}</td>
+                    <td>${blog.title}</td>
+                    <td>${blog.heading}</td>
+                    <td>${blog.dateSubmitted}</td>
+                    <td>${blog.category.nameCategory}</td>
+                    </tr>
+                    `;
+                }
+                $("#listBlog").html(blogStr);
+                count += limit;
+            },
+            error: function (error) {
+                //todo
+                console.log(error)
+            }
+        })
+    }
+</script>
+</body>
+</html>

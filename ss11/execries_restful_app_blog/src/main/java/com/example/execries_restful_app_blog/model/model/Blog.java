@@ -18,20 +18,20 @@ public class Blog {
     private String content;
 
     @JsonIgnore
-    @Column(name = "is_flag_delete", nullable = false,columnDefinition= "bit default 0")
-    private boolean isFlagDelete;
+    @Column(name = "flag_delete", nullable = false,columnDefinition= "bit default 0")
+    private boolean flagDelete;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    public Blog(Integer id, String title, String heading, String dateSubmitted, String content, boolean isFlagDelete, Category category) {
+    public Blog(Integer id, String title, String heading, String dateSubmitted, String content, boolean flagDelete, Category category) {
         this.id = id;
         this.title = title;
         this.heading = heading;
         this.dateSubmitted = dateSubmitted;
         this.content = content;
-        this.isFlagDelete = isFlagDelete;
+        this.flagDelete = flagDelete;
         this.category = category;
     }
 
@@ -79,11 +79,11 @@ public class Blog {
     }
 
     public boolean isFlagDelete() {
-        return isFlagDelete;
+        return flagDelete;
     }
 
     public void setFlagDelete(boolean flagDelete) {
-        isFlagDelete = flagDelete;
+        flagDelete = flagDelete;
     }
 
     public Category getCategory() {

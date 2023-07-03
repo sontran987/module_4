@@ -23,7 +23,7 @@ public class BlogServiceImpl implements IBlogService {
 
     @Override
     public List<Blog> displayBlog() {
-        return blogRepository.findAll();
+        return blogRepository.findBlogByFlagDeleteFalse();
     }
 
     @Override
@@ -54,7 +54,12 @@ public class BlogServiceImpl implements IBlogService {
 
     @Override
     public Page<Blog> search(Pageable pageable, String name, Category category) {
-        return blogRepository.findBlogByTitleContainsAndCategory(name, category, pageable);
+        return blogRepository.findBlogByTitleContainsOrCategory(name, category, pageable);
+    }
+
+    @Override
+    public List<Blog> searchBlogName(String name) {
+        return blogRepository.findBlogByTitle(name);
     }
 
     @Override

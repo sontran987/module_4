@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class RestBlogController {
     @Autowired
     private IBlogService blogService;
@@ -23,8 +24,8 @@ public class RestBlogController {
         return new ResponseEntity<>(this.blogService.displayBlog(),HttpStatus.OK);
     }
 
-    @GetMapping("/categorys")
-    public ResponseEntity<List<Category>>  getCategory() {
+    @GetMapping("/api/category")
+    public ResponseEntity<List<Category>> getCategory() {
         return new ResponseEntity<>(this.categoryService.displayCategory(),HttpStatus.OK);
     }
 
@@ -52,6 +53,13 @@ public class RestBlogController {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    @GetMapping("/api/blog/search/{nameBlog}")
+    public ResponseEntity<List<Blog>>search(@PathVariable String nameBlog){
+        if (blogService.searchBlogName(nameBlog)==null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(this.blogService.searchBlogName(nameBlog),HttpStatus.OK);
     }
 
 }

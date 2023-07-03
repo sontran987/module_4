@@ -15,7 +15,10 @@ import java.util.List;
 public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 //    @Query(value = "select * from blog where blog.title like concat('%',:title,'%') or blog.category_id = :id", nativeQuery = true)
 //    Page<Blog> findByTitle(Pageable pageable, @Param(value = "title") String name, @Param(value = "id") Integer idCategory);
-    Page<Blog> findBlogByTitleContainsAndCategory(String title, Category category , Pageable pageable );
+    Page<Blog> findBlogByTitleContainsOrCategory(String title, Category category , Pageable pageable );
+    @Query(value = "SELECT * FROM blog as b WHERE b.title like concat('%',:title,'%')", nativeQuery = true)
+    List<Blog> findBlogByTitle(@Param(value = "title") String title);
+    List<Blog> findBlogByFlagDeleteFalse();
     @Modifying
     @Transactional
     @Query(value = "update blog as b set is_flag_delete = 1 where b.id = :id ", nativeQuery = true)

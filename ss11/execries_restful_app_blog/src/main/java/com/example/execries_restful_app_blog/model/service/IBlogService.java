@@ -15,5 +15,6 @@ public interface IBlogService {
     Blog detailBlog(Integer id);
     boolean deleteBlog(Blog blog);
     Page<Blog> search(Pageable pageable,String name, Category category);
+    List<Blog> searchBlogName(String name);
     List<Blog> findAllByCategory(Category category);
 }
