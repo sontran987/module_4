@@ -66,27 +66,22 @@
         });
     }
 
-    $(document).ready(function () {
-        getListBlog();
-    })
-    $("#loadMore").on("click", function () {
-        getListBlog();
-    })
+
 
     function onSearchBlog() {
-        const nameBlog = $("#nameBlog").val().trim();
-        var url = 'http://localhost:8080/api/blog/search';
+        const nameBlog = $("#nameBlog").val();
+        let url = 'http://localhost:8080/api/blog/search/'+nameBlog;
         $.ajax({
             url: url,
             type: 'GET',
-            data:JSON.stringify(nameBlog),
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            // data:JSON.stringify(nameBlog),
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // },
             success: function (data) {
                 console.log(JSON.stringify(data));
                 let blogStr = '';
-                for (let blog of data.slice(count, count + limit)) {
+                for (let blog of data) {
                     blogStr += `
                     <tr>
                     <td>${blog.id}</td>
@@ -105,7 +100,13 @@
                 console.log(error)
             }
         })
-    }
+    } $(document).ready(function () {
+        getListBlog();
+    })
+    $("#loadMore").on("click", function () {
+        getListBlog();
+    })
+
 </script>
 </body>
 </html>
