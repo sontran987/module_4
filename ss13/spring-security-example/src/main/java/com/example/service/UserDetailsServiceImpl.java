@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.entity.AppUser;
-import com.example.entity.UserRole;
+import com.example.service.entity.AppUser;
+import com.example.service.entity.UserRole;
 import com.example.repository.AppUserRepository;
 import com.example.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
