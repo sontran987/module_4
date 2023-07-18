@@ -36,9 +36,13 @@ const format = (...name) => {
 }
 
 console.log(checkRating);
-for (const i of checkRating2) {
-    format(i.id, i.title, i.rating)
-}
+checkRating2.map((id)=>{
+    console.log(id.id + id.title + id.rating);
+
+})
+// for (const i of checkRating2) {
+//     format(i.id, i.title, i.rating)
+// }
 let addedCourses = [{
         id: 6,
         title: "PHP Tutorial",
@@ -56,4 +60,7 @@ let addedCourses = [{
     }
 ];
 const merge = [...courses, ...addedCourses];
-console.log(merge);
+const text = (courses,addedCourses)=>{
+    return [...courses,...addedCourses];
+}
+console.log(text);
