@@ -4,68 +4,45 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const index = ( <
-    section > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span > < span > < /span> <span></span >
+const index = (<section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
 
-    <
-    div class = "signin" >
+    <div class="signin">
 
-    <
-    div class = "content" >
+        <div class="content">
 
-    <
-    h2 > Sign In < /h2> 
+            <h2>Sign In</h2>
 
-    <
-    div class = "form" >
+            <div class="form">
 
-    <
-    div class = "inputBox" >
+                <div class="inputBox">
 
-    <
-    input type = "text"
-    required / > < i > Username < /i> 
+                    <input type="text" required /> <i>Username</i>
 
-    <
-    /div> 
+                </div>
 
-    <
-    div class = "inputBox" >
+                <div class="inputBox">
 
-    <
-    input type = "password"
-    required / > < i > Password < /i> 
+                    <input type="password" required /> <i>Password</i>
 
-    <
-    /div> 
+                </div>
 
-    <
-    div class = "links" > < a href = "#" > Forgot Password < /a> <a href="#">Signup</a >
+                <div class="links"> <a href="#">Forgot Password</a> <a href="#">Signup</a>
 
-    <
-    /div> 
+                </div>
 
-    <
-    div class = "inputBox" >
+                <div class="inputBox">
 
-    <
-    input type = "submit"
-    value = "Login" / >
+                    <input type="submit" value="Login" />
 
-    <
-    /div> 
+                </div>
 
-    <
-    /div> 
+            </div>
 
-    <
-    /div> 
+        </div>
 
-    <
-    /div> 
+    </div>
 
-    <
-    /section>
+</section>
 );
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(index);

@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const students = [{
+const students = [
+    {
         company: 'Alfreds Futterkiste',
         contact: 'Maria Anders',
         country: 'Germany'
@@ -36,31 +37,28 @@ const students = [{
     }
 ]
 
-const index = ( <
-    div >
-    <
-    h1 > Student < /h1> <
-    table >
-    <
-    tr >
-    <
-    th > company < /th> <
-    th > contact < /th> <
-    th > country < /th> <
-    /tr> {
-        students.map(student => ( <
-            tr >
-            <
-            td > { student.company } < /td> <
-            td > { student.contact } < /td> <
-            td > { student.country } < /td> <
-            /tr>
-        ))
-    }
+const index = (<div >
+    <h1 > Student </h1> <table >
+        <thead>
+            <tr >
+                <th > company </th>
+                <th > contact </th>
+                <th > country </th>
+            </tr>
+        </thead>
+        <body>
+            {students.map((student) => (
+                <tr >
+                    <td > {student.company} </td>
+                    <td > {student.contact} </td>
+                    <td > {student.country} </td>
+                </tr>
+            ))
+            }
+        </body>
 
-    <
-    /table> <
-    /div>
+    </table>
+</div>
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(index);
