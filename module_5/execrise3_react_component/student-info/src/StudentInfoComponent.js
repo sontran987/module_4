@@ -38,7 +38,7 @@ const students = [{
   address: 'Ha Noi'
 }
 ];
-function Stud() {
+function GetStudent() {
   return (
     <>
       <h1>Student</h1>
@@ -73,7 +73,7 @@ class StudentInfoComponent extends React.Component {
   };
   render() {
     return (
-      <Stud />
+      <GetStudent />
     );
   }
 }

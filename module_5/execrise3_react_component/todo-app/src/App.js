@@ -19,18 +19,18 @@ class App extends React.Component {
   handleAddItem = () => {
     if (this.state.item !== "") {
       const newList = [...this.state.list, this.state.item]
-      this.setState({ list: newList, item: "" })
+      this.setState(() => ({ list: newList, item: "" }))
     }
   }
 
   render() {
     return (
       <>
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
           <h1 >Todo List</h1>
-          <input  type='text' value={this.state.item} onChange={this.handleChange} />
+          <input type='text' value={this.state.item} onChange={this.handleChange} />
           <button onClick={this.handleAddItem}>Add</button>
-          <table style={{marginLeft:'47%'}}>
+          <table style={{ marginLeft: '47%' }}>
             <thead>
               <tr>
                 <th>Todo</th>
