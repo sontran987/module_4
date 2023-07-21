@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Header() {
 
@@ -7,9 +8,9 @@ function Header() {
             <div className="container-fluid bg-dark px-0">
                 <div className="row gx-0">
                     <div className="col-lg-3 bg-dark d-none d-lg-block">
-                        <a href="index.html" className="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                        <p className="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
                             <h1 className="m-0 text-primary text-uppercase">Hotel</h1>
-                        </a>
+                        </p>
                     </div>
                     <div className="col-lg-9">
                         <div className="row gx-0 bg-white d-none d-lg-flex">
@@ -42,18 +43,10 @@ function Header() {
                             </button>
                             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                 <div className="navbar-nav mr-auto py-0">
-                                    <a href="index.html" className="nav-item nav-link active">Home</a>
-                                    <a href="about.html" className="nav-item nav-link">Customer</a>
+                                    <NavLink to={'/'} className="nav-item nav-link">Home</NavLink>
+                                    <NavLink to={'/customer'} className="nav-item nav-link">Customer</NavLink>
                                     <a href="service.html" className="nav-item nav-link">Services</a>
                                     <a href="room.html" className="nav-item nav-link">Rooms</a>
-                                    <div className="nav-item dropdown">
-                                        <a href="/#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                        <div className="dropdown-menu rounded-0 m-0">
-                                            <a href="booking.html" className="dropdown-item">Booking</a>
-                                            <a href="team.html" className="dropdown-item">Our Team</a>
-                                            <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                                        </div>
-                                    </div>
                                     <a href="contact.html" className="nav-item nav-link">Contact</a>
                                 </div>
                                 <a href="https://htmlcodex.com/hotel-html-template-pro" className="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i className="fa fa-arrow-right ms-3" /></a>

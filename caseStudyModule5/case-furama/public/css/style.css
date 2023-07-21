@@ -150,7 +150,7 @@
 
 .booking {
     position: relative;
-    margin-top: -100px !important;
+    margin-top: -48px !important;
     z-index: 1;
 }
 
@@ -422,8 +422,8 @@
 
 .footer {
     position: relative;
-    margin-top: -110px;
-    padding-top: 180px;
+    margin-top: 10px;
+    padding-top: 80px;
 }
 
 .footer .btn.btn-social {
