@@ -1,27 +1,36 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import { NavLink } from 'react-router-dom'
-import { getBook } from './service/bookServer';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-function App() {
-  const [books, setListBooks] = useState([]);
-  const getList = async () => {
-    const data = await getBook();
-    setListBooks(data);
-  }
+function App(){
+  const [books, setBooks] = useState([]);
+
   useEffect(() => {
-    getList();
-  }, [])
+    const getBooks = async () => {
+      const response = await axios.get("http://localhost:3000/book");
+      setBooks(response.data);
+    };
+    getBooks();
+  }, []);
+
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:3000/book/${id}`);
+    setBooks(books.filter((book) => book.id !== id));
+    alert("Delete successful!");
+  };
+
   return (
-    <>
-      <h1>Library </h1>
-      <a >Add a new Book</a>
+    <div>
+      <h1>Library</h1>
+      <Link to="/new">
+        <button>Add a new Book</button>
+      </Link>
       <table>
         <thead>
           <tr>
             <th>Title</th>
             <th>Quantity</th>
-            <th colSpan={2}>Actions</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -29,14 +38,18 @@ function App() {
             <tr key={book.id}>
               <td>{book.title}</td>
               <td>{book.quantity}</td>
-              <td><NavLink>Edit</NavLink></td>
-              <td><buton>Delete</buton></td>
+              <td>
+                <Link to={`/edit/${book.id}`}>
+                  <button>Edit</button>
+                </Link>
+                <button onClick={() => handleDelete(book.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
-}
+};
 
 export default App;
