@@ -60,8 +60,7 @@ const index = (<div >
                     <td > {student.contact} </td>
                     <td > {student.country} </td>
                 </tr>
-            ))
-            }
+            ))}
         </tbody>
 
     </table>

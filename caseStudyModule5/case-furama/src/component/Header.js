@@ -45,8 +45,8 @@ function Header() {
                                 <div className="navbar-nav mr-auto py-0">
                                     <NavLink to={'/'} className="nav-item nav-link">Home</NavLink>
                                     <NavLink to={'/customer'} className="nav-item nav-link">Customer</NavLink>
-                                    <a href="service.html" className="nav-item nav-link">Services</a>
-                                    <a href="room.html" className="nav-item nav-link">Rooms</a>
+                                    <NavLink to={'/service'} className="nav-item nav-link">Services</NavLink>
+                                    <NavLink to={'/contract'} className="nav-item nav-link">Contract</NavLink>
                                     <a href="contact.html" className="nav-item nav-link">Contact</a>
                                 </div>
                                 <a href="https://htmlcodex.com/hotel-html-template-pro" className="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i className="fa fa-arrow-right ms-3" /></a>

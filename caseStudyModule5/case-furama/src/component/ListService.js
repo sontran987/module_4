@@ -1,17 +1,21 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-function ListService(){
-    return(
-      <>
-        <div className="container-xxl py-5">
+function ListService() {
+  return (
+    <>
+      <div className="container-xxl py-5">
         <div className="container">
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 className="section-title text-center text-primary text-uppercase">Our Rooms</h6>
-            <h1 className="mb-5">Explore Our <span className="text-primary text-uppercase">Rooms</span></h1>
+            <h1 className="mb-2">Explore Our <span className="text-primary text-uppercase">Rooms</span></h1>
           </div>
+          <NavLink to={'/service/create'} >
+            <button style={{ marginBottom: '50px' }} className="glowing-btn"><span class='glowing-txt'>Cre<span class='faulty-letter'>ate </span>Service</span></button>
+          </NavLink>
           <div className="row g-4">
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -38,15 +42,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                    </button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -73,15 +76,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                    </button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -108,15 +110,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                    </button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -143,15 +144,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                    </button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -178,15 +178,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                    </button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -210,14 +209,14 @@ function ListService(){
                   </div>
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-1.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -244,15 +243,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <button className="btn btn-sm btn-primary rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
-                    </button>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" href>Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-2.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -278,15 +276,14 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <a className="btn btn-sm btn-primary rounded py-2 px-4" href>Edit</a>
-                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete
-                    </button>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-              <div className="room-item shadow rounded overflow-hidden">
+              <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
                   <img className="img-fluid" src="img/room-3.jpg" alt="" />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
@@ -312,8 +309,8 @@ function ListService(){
                   <p className="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem
                     sed diam stet diam sed stet lorem.</p>
                   <div className="d-flex justify-content-between">
-                    <a className="btn btn-sm btn-primary rounded py-2 px-4" href>Edit</a>
-                    <a className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
+                    <NavLink to={'/service/edit'} className="btn btn-sm btn-primary rounded py-2 px-4" >Edit</NavLink>
+                    <button className="btn btn-sm btn-dark rounded py-2 px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                   </div>
                 </div>
               </div>
@@ -339,8 +336,8 @@ function ListService(){
           </div>
         </div>
       </div>
-      </>
+    </>
     //   {/* Room End */}
-    );
+  );
 }
 export default ListService;

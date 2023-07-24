@@ -4,7 +4,7 @@ import hotelHtmlTemplate from '../img/hotel-html-template.jpg'
 export default function CreateService(){
     return(
         <div className="formbold-main-wrapper">
-        <img src={hotelHtmlTemplate} height={400} width={600} style={{float: 'left'}} />
+        <img src={hotelHtmlTemplate} alt="hotel Html Template" height={400} width={600} style={{float: 'left'}} />
         <div className="formbold-form-wrapper">
           <form action="https://formbold.com/s/FORM_ID" method="POST">
             <div className="formbold-form-title">

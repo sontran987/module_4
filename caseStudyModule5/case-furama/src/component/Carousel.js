@@ -19,7 +19,7 @@ function Carousel() {
                   <h1 className="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious
                     Hotel</h1>
                   <a href className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
-                  <a href className="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                  <a href className="btn btn-primary py-md-3 px-md-5 animated slideInRigh">Book A Room</a>
                 </div>
               </div>
             </div>
@@ -31,7 +31,7 @@ function Carousel() {
                   <h1 className="display-3 text-white mb-4 animated slideInDown">Discover A Brand Luxurious
                     Hotel</h1>
                   <a href className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Rooms</a>
-                  <a href className="btn btn-light py-md-3 px-md-5 animated slideInRight">Book A Room</a>
+                  <a href className="btn btn-primary py-md-3 px-md-5 animated slideInRigh">Book A Room</a>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ function Carousel() {
                 </div>
               </div>
               <div className="col-md-2">
-                <button className="btn btn-primary w-100">Submit</button>
+                <button className="btn btn-primary w-100 " style={{borderRadius: '10px'}}>Submit</button>
               </div>
             </div>
           </div>
