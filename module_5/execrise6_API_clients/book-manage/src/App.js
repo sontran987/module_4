@@ -6,6 +6,7 @@ import { deleteBook, getBook } from "./service/bookServer";
 function App() {
   
   const [book, setBooks] = useState([]);
+  
   useEffect(() => {
     const getList = async () => {
       const data = await getBook();

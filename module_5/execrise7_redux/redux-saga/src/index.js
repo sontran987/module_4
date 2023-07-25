@@ -2,22 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import App  from './App';
-import AddBook from './AddBook';
-import EditBook from './EditBook';
+import GetUser from './component/GetUser';
+import App from './App';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <><BrowserRouter>
-  <h1>Thanh Son</h1>
-  {/* <App />  */}
+  <Provider store={store}>
+    <App />
+    <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<App />} />
-      <Route exact path="/new" element={<AddBook />} />
-      <Route exact path="/edit/:id" element={<EditBook />} />
+      <Route path='/user' element={<GetUser />}></Route>
     </Routes>
     </BrowserRouter>
-  </>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

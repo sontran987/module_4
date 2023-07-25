@@ -7,14 +7,14 @@ const EditBook = () => {
   const id  = useParams();
   const [book, setBooks] = useState([]);
   const navigate = useNavigate();
-
+  const libraries = async () => {
+    const data = await getBookId(id.id);
+    setBooks(data);
+  }
   useEffect(() => {
-    const libraries = async () => {
-      const data = await getBookId(id.id);
-      setBooks(data);
-    }
+   
     libraries();
-  }, []);
+  }, [id.id]);
 
   const handleSubmit = async () => {
     const title = document.getElementById("title").value

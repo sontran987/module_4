@@ -1,0 +1,16 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "thanh son",
+      "email": "thanhson@gmail.com",
+      "website": "conrad.com"
+    },
+    {
+      "id": 2,
+      "name": "thanh son",
+      "email": "thanhson@gmail.com",
+      "website": "conrad.com"
+    }
+  ]
+}
