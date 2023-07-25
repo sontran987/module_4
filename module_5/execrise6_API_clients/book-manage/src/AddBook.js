@@ -1,34 +1,36 @@
 import React, { useState } from "react";
-import axios from "axios";
-import useHistory from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { createBook } from "./service/bookServer";
 
-const AddBook = () => {
-  const [title, setTitle] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const history = useHistory();
+ export default function AddBook(){
+    const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await axios.post("http://localhost:3000/book", { title, quantity });
-    history.push("/");
-  };
+    const handleSubmit = () => {
 
+        const title = document.getElementById("title").value
+        const quantity = document.getElementById("quantity").value
+        const book = {
+            title: title,
+            quantity: quantity
+        }
+        createBook(book);
+        navigate("/");
+
+    }
   return (
     <div>
       <h1>Add a new Book</h1>
       <form onSubmit={handleSubmit} >
         <label>
           Title:
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <input type="text" id ='title'/>
         </label>
         <label>
           Quantity:
-          <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+          <input type="text" id='quantity' />
         </label>
         <button type="submit">Save</button>
       </form>
     </div>
   );
 };
-
-export default AddBook;

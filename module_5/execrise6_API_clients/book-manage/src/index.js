@@ -1,20 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { Route, Routes } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App  from './App';
 import AddBook from './AddBook';
 import EditBook from './EditBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <><BrowserRouter>
+  <h1>Thanh Son</h1>
+  {/* <App /> */}
     <Routes>
-      <Route exact path="/" component={<App />} />
-      <Route exact path="/new" component={<AddBook />} />
-      <Route exact path="/edit/:id" component={<EditBook />} />
+      <Route exact path="/" element={<App />} />
+      <Route exact path="/new" element={<AddBook />} />
+      <Route exact path="/edit/:id" element={<EditBook />} />
     </Routes>
-  </React.StrictMode>
+    </BrowserRouter>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

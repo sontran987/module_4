@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useNavigate, useParams } from "react-router-dom";
+import { getBook, getBookId, update } from "./service/bookServer";
 
 const EditBook = () => {
-  const { id } = useParams();
-  const [title, setTitle] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const history = useHistory();
+  const id  = useParams();
+  const [book, setBooks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const getBook = async () => {
-      const response = await axios.get(`http://localhost:3000/book/${id}`);
-      setTitle(response.data.title);
-      setQuantity(response.data.quantity);
-    };
-    getBook();
-  }, [id]);
+    const libraries = async () => {
+      const data = await getBookId(id.id);
+      setBooks(data);
+    }
+    libraries();
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await axios.patch(`http://localhost:3000/book/${id}`, { title, quantity });
-    history.push("/");
+  const handleSubmit = async () => {
+    const title = document.getElementById("title").value
+    const quantity = document.getElementById("quantity").value
+    const book = {
+        title: title,
+        quantity: quantity
+    }
+    update(id.id,book);
+    navigate("/");
   };
 
   return (
@@ -29,11 +33,11 @@ const EditBook = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Title:
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <input type="text" placeholder={book.title} id="title" />
         </label>
         <label>
           Quantity:
-          <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+          <input type="text" placeholder={book.quantity} id="quantity" />
         </label>
         <button type="submit">Save</button>
       </form>
