@@ -1,0 +1,150 @@
+
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Thanh Son",
+      "birthday": "2020-11-21",
+      "gender": "Nam",
+      "identity": "75970302740",
+      "phone":"0484284781",
+      "email": "thanhson@gmail.com",
+      "typeCustomer": "Diamond"      
+    }
+  ],
+  "service": [
+    {
+      "id": 1,
+      "img": "roo m1",
+      "serviceName": "Villa Venetia",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 2,
+      "img": "room1",
+      "serviceName": "Villa Costa",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 3,
+      "img": "room1",
+      "serviceName": "Villa Coral ",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 4,
+      "img": "room1",
+      "serviceName": "Villa Pacifica",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 5,
+      "img": "room1",
+      "serviceName": "Villa Hermosa",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 6,
+      "img": "room1",
+      "serviceName": "Villa Encantada",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 7,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 8,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 9,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 10,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 11,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 12,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "id": 13,
+      "img": "room1",
+      "serviceName": "Villa Esmeralda",
+      "area":"2190m²",
+      "price": 2000,
+      "maxOfPeople":20,
+      "pool": "200m²",
+      "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    }
+  ],
+  "contract": {
+    "name": "typicode"
+  }
+}

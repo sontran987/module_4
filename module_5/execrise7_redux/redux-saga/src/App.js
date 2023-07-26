@@ -1,13 +1,13 @@
 import React from "react";
 import { fakeLogin } from "./redux/userAction";
 import { useDispatch } from "react-redux";
-import GetUser from "./component/GetUser";
-import { useNavigate } from "react-router";
+// import GetUser from "./component/GetUser";
+// import { useNavigate } from "react-router";
 
 function App() {
   const dispatch = useDispatch();
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const login = () => {
     dispatch(fakeLogin());
     
@@ -17,7 +17,7 @@ function App() {
       <h1>
         User List
       </h1>
-      <GetUser />
+      {/* <GetUser /> */}
      <button onClick={login} >Get user</button>
     </>
   );

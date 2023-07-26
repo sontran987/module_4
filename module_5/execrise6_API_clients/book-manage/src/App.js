@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { deleteBook, getBook } from "./service/bookServer";
 
 function App() {
-  
+
   const [book, setBooks] = useState([]);
-  
+  const getList = async () => {
+    const data = await getBook();
+    setBooks(data);
+  }
   useEffect(() => {
-    const getList = async () => {
-      const data = await getBook();
-      setBooks(data);
-    }
+
     getList();
   }, [])
 

@@ -1,5 +1,3 @@
-// import { useEffect } from "react";
-import { useNavigate } from "react-router";
 import { DeleteUsers, GetUsers } from "../service/userService";
 
 export const fakeLogin = () => {
@@ -30,7 +28,7 @@ export const DeleteUser = (id) => {
         // console.log(id);
         const data = await GetUsers();
         dispatch({
-            type: "USER_LIST",
+            type: "DELETE_USER",
             payload: data
         });
     };

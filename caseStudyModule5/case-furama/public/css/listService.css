@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 :root {
-    --glow-color: hsl(158, 83%, 48%);
-    --glow-background: hsl(186, 49%, 16%);
+    --glow-color: hsl(43, 100%, 40%);
+    --glow-background: hsl(39, 98%, 48%);
 }
 
 .glowing-btn {

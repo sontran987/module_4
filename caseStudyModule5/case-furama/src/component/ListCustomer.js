@@ -172,9 +172,8 @@ export default function ListCustomer() {
                   <h2>Customer <b>Management</b></h2>
                 </div>
                 <div class="col-sm-6" >
-                  <NavLink to={'/customer/create'} style={{ float: 'right', marginTop: '20px' }} >
-                    <NavLink style={{ marginBottom: '50px' }} className="glowing-btn"><span class='glowing- txt'>Cre<span class='faulty-letter'>ate </span>Service</span></NavLink>
-                  </NavLink>
+                  
+                    <NavLink to={'/customer/create'} style={{ marginBottom: '50px', float: 'right', marginTop: '20px'}} className="glowing-btn"><span class='glowing- txt'>Cre<span class='faulty-letter'>ate </span>Service</span></NavLink>
                 </div>
               </div>
             </div>

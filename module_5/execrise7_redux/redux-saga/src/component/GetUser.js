@@ -7,7 +7,11 @@ export default function GetUser() {
     const dispatch = useDispatch();
     const deleteUser = (id) => {
         
-        dispatch(DeleteUser(id));
+        if(window.confirm("Do you want to delete?")){
+            dispatch(DeleteUser(id));
+            alert("Delete success");    
+        }
+        
     };
     
     return (
