@@ -1,168 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
-const customer = [
-  {
-    id: 1,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 2,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 3,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 4,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 5,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 6,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 7,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 8,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 9,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 10,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 11,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 12,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 13,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-  {
-    id: 14,
-    name: 'Michael Holz',
-    dateOfBirth: '21-12-2020',
-    gender: 'Nam',
-    identity: '123125643852',
-    phone: '0127628827',
-    email: 'thanhson@gmail.com',
-    typeOfGuest: 'Kim cương ',
-    address: 'Da Nang, Viet Nam'
-  },
-
-];
+import { getCustomer } from "../service/customerService";
 
 export default function ListCustomer() {
+  const [customers, setCustomer] = useState([]);
+  const getList = async () => {
+    const data = await getCustomer();
+    setCustomer(data);
+  }
+  useEffect(()=>{
+    getList();
+  },[])
   return (
     <body>
-
       <div className="container-xl">
         <div className="table-responsive">
           <div className="table-wrapper">
@@ -193,17 +43,17 @@ export default function ListCustomer() {
                 </tr>
               </thead>
               <tbody>
-                {customer.map((customers) => (
-                  <tr key={customers.id}>
-                    <td>{customers.id}</td>
-                    <td>{customers.name}</td>
-                    <td>{customers.dateOfBirth}</td>
-                    <td>{customers.gender}</td>
-                    <td>{customers.identity}</td>
-                    <td>{customers.phone}</td>
-                    <td>{customers.email}</td>
-                    <td>{customers.typeOfGuest}</td>
-                    <td>{customers.address}</td>
+                {customers.map((customer) => (
+                  <tr key={customer.id}>
+                    <td>{customer.id}</td>
+                    <td>{customer.name}</td>
+                    <td>{customer.dateOfBirth}</td>
+                    <td>{customer.gender}</td>
+                    <td>{customer.identity}</td>
+                    <td>{customer.phone}</td>
+                    <td>{customer.email}</td>
+                    <td>{customer.typeOfGuest}</td>
+                    <td>{customer.address}</td>
                     <td>
                       <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
                       <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></NavLink>

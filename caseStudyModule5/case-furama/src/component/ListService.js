@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import room1 from '../img/room-1.jpg'
-import room2 from '../img/room-2.jpg'
-import room3 from '../img/room-3.jpg'
+// import room2 from '../img/room-2.jpg'
+// import room3 from '../img/room-3.jpg'
 import { getService } from "../service/serviceService";
 
 
