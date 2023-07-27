@@ -4,17 +4,28 @@ import { useEffect, useState } from 'react'
 import { getInformation } from './service/informationService'
 
 
-// const inter = Inter({ subsets: ['latin'] })
+import axios from "axios"
 
-export default function Home() {
-  const [covid19, setCovid19] = useState([]);
-  const getList = async () => {
-    const data = await getInformation();
-    setCovid19(data);
-  }
-  useEffect(() => {
-    getList();
-  },[])
+export async function getStaticProps(){
+    const res = await axios.get('http://localhost:8080/information');
+    const data=res.data;
+    return{
+      props:{
+      data
+      }
+    } 
+}
+
+
+export default function Home({data}) {
+  // const [covid19, setCovid19] = useState([]);
+  // const getList = async () => {
+  //   const data = await getInformation();
+  //   setCovid19(data);
+  // }
+  // useEffect(() => {
+  //   getList();
+  // },[])
 
   return (
     <>
@@ -30,7 +41,7 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
-          {covid19.map((covid,index) => {
+          {data.map((covid,index) => {
             console.log(covid.id);
             return(
             <tr key={covid.id}>
