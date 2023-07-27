@@ -3,29 +3,15 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useEffect, useState } from 'react'
 import { getInformation } from './service/informationService'
 
-
-import axios from "axios"
-
-export async function getStaticProps(){
-    const res = await axios.get('http://localhost:8080/information');
-    const data=res.data;
-    return{
-      props:{
-      data
-      }
-    } 
-}
-
-
-export default function Home({data}) {
-  // const [covid19, setCovid19] = useState([]);
-  // const getList = async () => {
-  //   const data = await getInformation();
-  //   setCovid19(data);
-  // }
-  // useEffect(() => {
-  //   getList();
-  // },[])
+export default function Home() {
+  const [covid19, setCovid19] = useState([]);
+  const getList = async () => {
+    const data = await getInformation();
+    setCovid19(data);
+  }
+  useEffect(() => {
+    getList();
+  },[])
 
   return (
     <>

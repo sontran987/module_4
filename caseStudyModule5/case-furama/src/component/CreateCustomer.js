@@ -3,6 +3,9 @@ import React from "react";
 import * as yup from 'yup';
 
 export default function CreateCustomer() {
+  const create = (values) =>{
+    const 
+  }
   return (
     <div className="formbold-main-wrapper">
       <div className="formbold-form-wrapper">
@@ -19,16 +22,18 @@ export default function CreateCustomer() {
             address: yup.string().required('Required the enter address '),
           })}
         >
-          <Form action="https://formbold.com/s/FORM_ID" method="POST">
+          <Form onSubmit={(values)=>{
+            create(values)
+          }}>
             <div className="formbold-input-flex">
               <div>
-                <Field type="text" name="firstname" id="firstname" placeholder="Jane" className="formbold-form-input" />
-                <label htmlFor="firstname" className="formbold-form-label"> Name</label>
+                <Field type="text" name="name" id="name" placeholder="Jane" className="formbold-form-input" />
+                <label htmlFor="name" className="formbold-form-label"> Name</label>
                 <ErrorMessage name='name' component='div' className='text-color' />
               </div>
               <div>
-                <Field type="date" name="date" id="lastname" placeholder="Cooper" className="formbold-form-input" />
-                <label htmlFor="lastname" className="formbold-form-label"> Date </label>
+                <Field type="date" name="date" id="date" placeholder="Cooper" className="formbold-form-input" />
+                <label htmlFor="date" className="formbold-form-label"> Date </label>
                 <ErrorMessage name='date' component='div' className='text-color' />
               </div>
             </div>
@@ -58,23 +63,23 @@ export default function CreateCustomer() {
               <div>
                 <Field type="text" name="identity" id="identity" placeholder={1213124353} className="formbold-form-input" />
                 <label htmlFor="identity" className="formbold-form-label"> Identity </label>
-                <ErrorMessage name='indentity' component='div' className='text-color' />
+                <ErrorMessage name='identity' component='div' className='text-color' />
               </div>
             </div>
             <div className="formbold-mb-3">
-              <label htmlFor="address2" className="formbold-form-label">
+              <label htmlFor="typeOfGuest" className="formbold-form-label">
                 Type of guest
               </label>
-              <Field type="text" name="typeOfGuest" id="address2" className="formbold-form-input" />
+              <Field type="text" name="typeOfGuest" id="typeOfGuest" className="formbold-form-input" />
               <ErrorMessage name='typeOfGuest' component='div' className='text-color' />
             </div>
             <div className="formbold-textarea">
-              <textarea rows={3} name="addRess" id="address" placeholder="addRess" className="formbold-form-input" defaultValue={""} />
+              <textarea rows={3} name="addRess" id="address" placeholder="address" className="formbold-form-input" defaultValue={""} />
               <label htmlFor="address" className="formbold-form-label"> Address</label>
               <ErrorMessage name='address' component='div' className='text-color' />
             </div>
-            <button className="formbold-btn">
-              Send Message
+            <button type="submit" className="formbold-btn">
+              Send  
             </button>
           </Form>
         </Formik>

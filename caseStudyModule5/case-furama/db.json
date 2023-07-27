@@ -1,6 +1,19 @@
 {
+  "typeCustomer": [
+    {
+      "id": 1,
+      "nameType": "Diamond"
+    },
+    {
+      "id": 2,
+      "nameType": "Copper"
+    },
+    {
+      "id": 3,
+      "nameType": "Yellow"
+    }
+  ],
   "customer": [
-    
     {
       "id": 1,
       "name": "Michael Holz",
@@ -9,8 +22,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 2,
@@ -20,8 +36,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 3,
@@ -31,8 +50,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 4,
@@ -42,8 +64,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 5,
@@ -53,8 +78,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 6,
@@ -64,8 +92,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 7,
@@ -75,8 +106,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 8,
@@ -86,8 +120,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 9,
@@ -97,8 +134,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 10,
@@ -108,8 +148,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 11,
@@ -119,8 +162,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 12,
@@ -130,8 +176,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 13,
@@ -141,8 +190,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 14,
@@ -152,8 +204,11 @@
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Kim cương" ,
-      "address": "Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     },
     {
       "id": 15,
@@ -163,14 +218,17 @@
       "identity": "75970302740",
       "phone": "0484284781",
       "email": "thanhson@gmail.com",
-      "typeOfGuest": "Diamond",
-      "address":"Da Nang, Viet Nam"
+      "address": "Da Nang, Viet Nam",
+      "typeCustomer": {
+        "id": 1,
+        "nameType": "Diamond"
+      }
     }
   ],
   "service": [
     {
       "id": 1,
-      "img": "roo m1",
+      "img": "https://www.hoteljob.vn/uploads/images/18-08-08-16/Resort-la-gi-01.jpeg",
       "serviceName": "Villa Venetia",
       "area": "2190m²",
       "price": 2000,
@@ -180,7 +238,7 @@
     },
     {
       "id": 2,
-      "img": "room1",
+      "img": "https://onetouchmedia.vn/wp-content/uploads/2019/10/N.NT-31.jpg",
       "serviceName": "Villa Costa",
       "area": "2190m²",
       "price": 2000,
@@ -190,7 +248,7 @@
     },
     {
       "id": 3,
-      "img": "room1",
+      "img": "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/10/8/961527/Moi-Biet-Thu-Tai-New.jpg",
       "serviceName": "Villa Coral ",
       "area": "2190m²",
       "price": 2000,
@@ -200,7 +258,7 @@
     },
     {
       "id": 4,
-      "img": "room1",
+      "img": "https://toquoc.mediacdn.vn/280518851207290880/2023/4/28/screenshot3-1682666317502330816495.png",
       "serviceName": "Villa Pacifica",
       "area": "2190m²",
       "price": 2000,
@@ -210,7 +268,7 @@
     },
     {
       "id": 5,
-      "img": "room1",
+      "img": "https://angcovat.vn/imagesdata/TIN327127/1-cac-mau-bungalow-trong-resort-tren-bien.jpg",
       "serviceName": "Villa Hermosa",
       "area": "2190m²",
       "price": 2000,
@@ -220,7 +278,7 @@
     },
     {
       "id": 6,
-      "img": "room1",
+      "img": "https://www.cet.edu.vn/wp-content/uploads/2018/02/thuat-ngu-resort-la-gi.jpg",
       "serviceName": "Villa Encantada",
       "area": "2190m²",
       "price": 2000,
@@ -230,7 +288,7 @@
     },
     {
       "id": 7,
-      "img": "room1",
+      "img": "https://dmaevvtdousx6.cloudfront.net/uploads/2018/08/gallery49.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -240,7 +298,7 @@
     },
     {
       "id": 8,
-      "img": "room1",
+      "img": "https://resortdanang.info/wp-content/uploads/2018/11/ho-boi-hyatt-resort-da-nang.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -250,7 +308,7 @@
     },
     {
       "id": 9,
-      "img": "room1",
+      "img": "https://kconceptvn.com/wp-content/uploads/2020/04/hotel-photography-chup-anh-khach-san-resort-Senvila-Boutique-Resort-Hoi-An-Da-Nang-120.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -260,7 +318,7 @@
     },
     {
       "id": 10,
-      "img": "room1",
+      "img": "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/08/2-sai-gon-mui-ne-resort-vntrip-e1534848067728.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -270,7 +328,7 @@
     },
     {
       "id": 11,
-      "img": "room1",
+      "img": "https://photo-cms-bizlive.epicdn.me/w1200/Uploaded/2023/ingavs/2022_09_21/resort-15825354569571980487645-7377.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -280,7 +338,7 @@
     },
     {
       "id": 12,
-      "img": "room1",
+      "img": "https://media.baodansinh.vn/baodansinh//222978561005920256/2021/5/15/hinhanh20khuresorttrongmo12-1621049723054656716068.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -290,7 +348,7 @@
     },
     {
       "id": 13,
-      "img": "room1",
+      "img": "https://quantrinhahang.edu.vn/wp-content/uploads/2019/04/resort-la-loai-hinh-nghi-duong-cao-cap.jpg",
       "serviceName": "Villa Esmeralda",
       "area": "2190m²",
       "price": 2000,
@@ -299,7 +357,55 @@
       "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
     }
   ],
-  "contract": {
-    "name": "typicode"
-  }
+  "contract": [
+    {
+      "id": 1,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    },
+    {
+      "id": 2,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    },
+    {
+      "id": 3,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    },
+    {
+      "id": 4,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    },
+    {
+      "id": 5,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    },
+    {
+      "id": 6,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    },
+    {
+      "id": 7,
+      "checkIn": "20-11-2020",
+      "checkOut": "25-11-2020",
+      "advanceDepositAmount": "202390",
+      "totalPaymentAmount": "2379474928"
+    }
+  ]
 }

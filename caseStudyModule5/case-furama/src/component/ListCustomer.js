@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getCustomer } from "../service/customerService";
+import ReactPaginate from 'react-paginate';
 
 export default function ListCustomer() {
   const [customers, setCustomer] = useState([]);
+  // const [totalElement, setTotalElement] = useState(0);
+  // const [totalPage, setTotalPage] = useState(0);
+
+
   const getList = async () => {
-    const data = await getCustomer();
-    setCustomer(data);
+    const res = await getCustomer();
+    console.log(res);
+    // setTotalElement(res.total);
+    setCustomer(res.data);
+    // setTotalPage(res.total_page);
   }
-  useEffect(()=>{
+  useEffect(() => {
     getList();
-  },[])
+  }, []);
+  const handlePageClick = () => {
+
+  }
+
+
   return (
     <body>
       <div className="container-xl">
@@ -22,8 +35,8 @@ export default function ListCustomer() {
                   <h2>Customer <b>Management</b></h2>
                 </div>
                 <div class="col-sm-6" >
-                  
-                    <NavLink to={'/customer/create'} style={{ marginBottom: '50px', float: 'right', marginTop: '20px'}} className="glowing-btn"><span class='glowing- txt'>Cre<span class='faulty-letter'>ate </span>Service</span></NavLink>
+
+                  <NavLink to={'/customer/create'} style={{ marginBottom: '50px', float: 'right', marginTop: '20px' }} className="glowing-btn"><span class='glowing- txt'>Cre<span class='faulty-letter'>ate </span>Service</span></NavLink>
                 </div>
               </div>
             </div>
@@ -52,7 +65,7 @@ export default function ListCustomer() {
                     <td>{customer.identity}</td>
                     <td>{customer.phone}</td>
                     <td>{customer.email}</td>
-                    <td>{customer.typeOfGuest}</td>
+                    <td>{customer.typeCustomer.nameType}</td>
                     <td>{customer.address}</td>
                     <td>
                       <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
@@ -61,95 +74,28 @@ export default function ListCustomer() {
                   </tr>
                 ))
                 }
-                {/* <tr>
-                  <td>1</td>
-                  <td><NavLink to={''}> Michael Holz</NavLink></td>
-                  <td>04/10/2013</td>
-                  <td>Nam</td>
-                  <td>81098390280</td>
-                  <td>0592349873</td>
-                  <td>thanhson@gmail.com</td>
-                  <td>Kim cương</td>
-                  <td>Đà nẵng, Việt Nam</td>
-                  <td>
-                    <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
-                    <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></NavLink>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><NavLink to={''}> Paula Wilson</NavLink></td>
-                  <td>05/08/2014</td>
-                  <td>Nữ</td>
-                  <td>81098390280</td>
-                  <td>0592349873</td>
-                  <td>thanhson@gmail.com</td>
-                  <td>Kim cương</td>
-                  <td>Đà nẵng, Việt Nam</td>
-                  <td>
-                    <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
-                    <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete " data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i class="fa-solid fa-trash"></i> </span></NavLink>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><NavLink to={''}> Antonio Moreno</NavLink></td>
-                  <td>11/05/2015</td>
-                  <td>Nữ</td>
-                  <td>0592349873</td>
-                  <td>81098390280</td>
-                  <td>thanhson@gmail.com</td>
-                  <td>Kim cương</td>
-                  <td>Đà nẵng, Việt Nam</td>
-                  <td>
-                    <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
-                    <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete " data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i class="fa-solid fa-trash"></i> </span></NavLink>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td><NavLink to={''}> Mary Saveley</NavLink></td>
-                  <td>06/09/2016</td>
-                  <td>Nữ</td>
-                  <td>0592349873</td>
-                  <td>81098390280</td>
-                  <td>thanhson@gmail.com</td>
-                  <td>Kim cương</td>
-                  <td>Đà nẵng, Việt Nam</td>
-                  <td>
-                    <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
-                    <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete " data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i class="fa-solid fa-trash"></i> </span></NavLink>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td><NavLink to={''}> Martin Sommer</NavLink></td>
-                  <td>12/08/2017</td>
-                  <td>Nữ</td>
-                  <td>0592349873</td>
-                  <td>81098390280</td>
-                  <td>thanhson@gmail.com</td>
-                  <td>Kim cương</td>
-                  <td>Đà nẵng, Việt Nam</td>
-                  <td>
-                    <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
-                    <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete " data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i class="fa-solid fa-trash"></i> </span></NavLink>
-                  </td>
-                </tr> */}
+
               </tbody>
             </table>
-            <div className="clearfix">
-              <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-              <ul className="pagination">
-                <li className="page-item disabled"><NavLink to={'/'} className="page-link">Previous</NavLink></li>
-                <li className="page-item"><NavLink to={'/'} className="page-link">1</NavLink></li>
-                <li className="page-item"><NavLink to={'/'} className="page-link">2</NavLink></li>
-                <li className="page-item active"><NavLink to={'/'} className="page-link">3</NavLink></li>
-                <li className="page-item"><NavLink to={'/'} className="page-link">4</NavLink></li>
-                <li className="page-item"><NavLink to={'/'} className="page-link">5</NavLink></li>
-                <li className="page-item"><NavLink to={'/'} className="page-link">Next</NavLink></li>
-              </ul>
-            </div>
+            <ReactPaginate
+              nextLabel="next >"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={4}
+              pageCount={20}
+              previousLabel="< previous"
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item"
+              previousLinkClassName="page-link"
+              nextClassName="page-item"
+              nextLinkClassName="page-link"
+              breakLabel="..."
+              breakClassName="page-item"
+              breakLinkClassName="page-link"
+              containerClassName="pagination"
+              activeClassName="active"
+            />
           </div>
         </div>
       </div>

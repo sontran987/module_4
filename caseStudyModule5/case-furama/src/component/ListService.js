@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import room1 from '../img/room-1.jpg'
+// import room1 from '../img/room-1.jpg'
 // import room2 from '../img/room-2.jpg'
 // import room3 from '../img/room-3.jpg'
 import { getService } from "../service/serviceService";
@@ -30,7 +30,7 @@ function ListService() {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div className="room-item shadow rounded overflow-hidden" style={{ borderRadius: '20px' }}>
                 <div className="position-relative">
-                  <img className="img-fluid" src={room1} alt="thanhson" />
+                  <img className="" height={200} width={'100%'} src={service.img} alt={service.serviceName} />
                   <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">{service.price}/Night</small>
                 </div>
                 <div className="p-4 mt-2">

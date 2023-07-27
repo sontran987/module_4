@@ -35,9 +35,6 @@ function Header() {
                             </div>
                         </div>
                         <nav className="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                            <a href="index.html" className="navbar-brand d-block d-lg-none">
-                                <h1 className="m-0 text-primary text-uppercase">Hotelier</h1>
-                            </a>
                             <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                                 <span className="navbar-toggler-icon" />
                             </button>
@@ -47,9 +44,9 @@ function Header() {
                                     <NavLink to={'/customer'} className="nav-item nav-link">Customer</NavLink>
                                     <NavLink to={'/service'} className="nav-item nav-link">Services</NavLink>
                                     <NavLink to={'/contract'} className="nav-item nav-link">Contract</NavLink>
-                                    <a href="contact.html" className="nav-item nav-link">Contact</a>
+                                    {/* <a  className="nav-item nav-link">Contact</a> */}
                                 </div>
-                                <a href="https://htmlcodex.com/hotel-html-template-pro" className="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i className="fa fa-arrow-right ms-3" /></a>
+                                <a href className="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i className="fa fa-arrow-right ms-3" /></a>
                             </div>
                         </nav>
                     </div>
