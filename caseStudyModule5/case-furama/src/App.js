@@ -19,11 +19,12 @@ function App() {
         <Header />
         <Carousel />
         <Routes>
+          <Route path='/' element={<ListService />}/>
           <Route path='/service' element={<ListService />}/>
           <Route path='/customer' element={<ListCustomer />}/>
           <Route path='/contract' element={<ListContract />}/>
-          <Route path='/service/edit' element={<EditService />}/>
-          <Route path='/customer/edit' element={<EditCustomer />}/>
+          <Route path='/service/edit/:id' element={<EditService />}/>
+          <Route path='/customer/edit/:id' element={<EditCustomer />}/>
           <Route path='/service/create' element={<CreateService />}/>
           <Route path='/customer/create' element={<CreateCustomer />}/>
           <Route path='/contract/create' element={<CreateContract />}/>

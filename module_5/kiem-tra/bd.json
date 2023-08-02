@@ -1,0 +1,50 @@
+{
+  "trangThai": [
+    {
+      "ma": 1,
+      "ten": "Lưu trữ"
+    },
+    {
+      "ma": 2,
+      "ten": "Công Khai"
+    }
+  ],
+  "nhac": [
+    {
+      "id": 1,
+      "tenBaiHat": "Thanh xuan",
+      "caSi": "Thanh Son",
+      "nhacSi": "Thanh Son",
+      "thoiGianPhat": "10:00",
+      "soLuotYeuThich": 20029,
+      "trangThai": {
+        "ma": 1,
+        "ten": "Lưu trữ"
+      }
+    },
+    {
+      "id": 2,
+      "tenBaiHat": "Thanh xuan",
+      "caSi": "Thanh Son",
+      "nhacSi": "Thanh Son",
+      "thoiGianPhat": "10:00",
+      "soLuotYeuThich": 20029,
+      "trangThai": {
+        "ma": 1,
+        "ten": "Lưu trữ"
+      }
+    },
+    {
+      "tenBaiHat": "ưq",
+      "caSi": "qưe",
+      "nhacSi": "qew",
+      "thoiGianPhat": "12:12",
+      "soLuotYeuThich": 0,
+      "trangThai": {
+        "ma": 1,
+        "ten": "Lưu trữ"
+      },
+      "id": 3
+    }
+  ]
+}

@@ -16,22 +16,22 @@
   "customer": [
     {
       "id": 1,
-      "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
-      "gender": "Nam",
+      "name": "TÀI DZ",
+      "dateOfBirth": "21/12/2020",
+      "gender": "Nu",
       "identity": "123125643852",
       "phone": "0127628827",
       "email": "thanhson@gmail.com",
       "address": "Da Nang, Viet Nam",
       "typeCustomer": {
-        "id": 1,
-        "nameType": "Diamond"
+        "id": 3,
+        "nameType": "Yellow"
       }
     },
     {
       "id": 2,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -45,7 +45,7 @@
     {
       "id": 3,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -59,7 +59,7 @@
     {
       "id": 4,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -73,7 +73,7 @@
     {
       "id": 5,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -87,7 +87,7 @@
     {
       "id": 6,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -101,7 +101,7 @@
     {
       "id": 7,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -115,7 +115,7 @@
     {
       "id": 8,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -129,7 +129,7 @@
     {
       "id": 9,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -143,7 +143,7 @@
     {
       "id": 10,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -157,7 +157,7 @@
     {
       "id": 11,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -171,7 +171,7 @@
     {
       "id": 12,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -185,7 +185,7 @@
     {
       "id": 13,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -199,7 +199,7 @@
     {
       "id": 14,
       "name": "Michael Holz",
-      "dateOfBirth": "21-12-2020",
+      "dateOfBirth": "21/12/2020",
       "gender": "Nam",
       "identity": "123125643852",
       "phone": "0127628827",
@@ -223,17 +223,31 @@
         "id": 1,
         "nameType": "Diamond"
       }
+    },
+    {
+      "name": "12312",
+      "dateOfBirth": "2023-07-09",
+      "gender": "Nu",
+      "identity": "123123",
+      "phone": "12313123",
+      "email": "thanhson@gmail.com",
+      "address": "eqwe",
+      "typeCustomer": {
+        "id": 3,
+        "nameType": "Yellow"
+      },
+      "id": 16
     }
   ],
   "service": [
     {
       "id": 1,
-      "img": "https://www.hoteljob.vn/uploads/images/18-08-08-16/Resort-la-gi-01.jpeg",
-      "serviceName": "Villa Venetia",
+      "img": "https://onetouchmedia.vn/wp-content/uploads/2019/10/N.NT-31.jpg",
+      "serviceName": "VillaThanh",
       "area": "2190m²",
       "price": 2000,
       "maxOfPeople": 20,
-      "pool": "",
+      "pool": " ",
       "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
     },
     {
@@ -355,6 +369,16 @@
       "maxOfPeople": 20,
       "pool": "200m²",
       "serviceDescription": "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem "
+    },
+    {
+      "img": "https://inkythuatso.com/uploads/thumbnails/800/2023/02/cach-tao-dang-chup-anh-o-resort-inkythuatso-22-11-53-10.jpg",
+      "serviceName": "Thanh Son",
+      "area": "30000",
+      "price": "9900900000",
+      "maxOfPeople": 200,
+      "pool": "200",
+      "serviceDescription": "ta đi trong gió trong sương mù mập mờ",
+      "id": 15
     }
   ],
   "contract": [

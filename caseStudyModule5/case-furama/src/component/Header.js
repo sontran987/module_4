@@ -5,11 +5,11 @@ function Header() {
 
     return (
         <>
-            <div className="container-fluid bg-dark px-0">
+            <div className="container-fluid px-0" style={{background: "-webkit-linear-gradient(left, #25c481, #25b7c4),linear-gradient(to right, #25c481, #25b7c4)"}}>
                 <div className="row gx-0">
-                    <div className="col-lg-3 bg-dark d-none d-lg-block">
-                        <p className="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                            <h1 className="m-0 text-primary text-uppercase">Hotel</h1>
+                    <div className="col-lg-3 d-none d-lg-block">
+                        <p className="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center" >
+                            <h1 className="m-0 text-primary text-uppercase" style={{fontWeight: 'bold'}}>Hotel</h1>
                         </p>
                     </div>
                     <div className="col-lg-9">
@@ -34,7 +34,7 @@ function Header() {
                                 </div>
                             </div>
                         </div>
-                        <nav className="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                        <nav className="navbar navbar-expand-lg navbar-dark p-3 p-lg-0">
                             <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                                 <span className="navbar-toggler-icon" />
                             </button>

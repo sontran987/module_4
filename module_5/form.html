@@ -1,0 +1,75 @@
+<div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+        <Form>
+            <h1 style="text-align: center;margin-top:20px">Create Customer</h1>
+            <div class="formbold-input-flex">
+                <div>
+                    
+                    <input type="text" name="name" id="name" placeholder="Jane" class="formbold-form-input" />
+                    <label for="name" class="formbold-form-label"> Name</label>
+
+                </div>
+                <div>
+
+                    <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Cooper"
+                        class="formbold-form-input" />
+                    <label for="dateOfBirth" class="formbold-form-label"> Date </label>
+
+                </div>
+            </div>
+            <div class="formbold-input-flex">
+                <div>
+
+                    <input type="email" name="email" id="email" placeholder="jhon@mail.com"
+                        class="formbold-form-input" />
+                    <label for="email" class="formbold-form-label"> Mail </label>
+
+                </div>
+                <div>
+
+                    <input type="text" name="phone" id="phone" placeholder="0(319) 555-115"
+                        class="formbold-form-input" />
+                    <label for="phone" class="formbold-form-label"> Phone </label>
+
+                </div>
+            </div>
+            <div class="formbold-input-flex">
+                <div>
+
+                    <label>
+                        <input type="radio" name="gender" value='Nam' />Nam
+                        <input type="radio" name="gender" value='Nu' style="margin-left: 5px" />Nữ
+                    </label>
+                    <label for="gender" class="formbold-form-label"> Gender</label>
+
+                </div>
+                <div>
+
+                    <input type="text" name="identity" id="identity" placeholder={1213124353}
+                        class="formbold-form-input" />
+                    <label htmlFor="identity" class="formbold-form-label"> Identity </label>
+
+                </div>
+            </div>
+            <div class="formbold-mb-3">
+                <label htmlFor="typeOfGuest" class="formbold-form-label">
+                    Type of guest
+                </label>
+                <Field name="typeOfGuest" as="select">
+                    <option>--Choose Type of guest--</option>
+                </Field>
+
+            </div>
+            <div class="formbold-textarea">
+
+                <input type="text" as='textarea' rows={3} name="address" id="address" placeholder="address"
+                    class="formbold-form-input"/>
+                <label htmlFor="address" class="formbold-form-label"> Address</label>
+
+            </div>
+            <button type="submit" class="formbold-btn">
+                Send
+            </button>
+        </Form>
+    </div>
+</div>

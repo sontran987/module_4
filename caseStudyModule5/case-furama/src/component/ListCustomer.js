@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { getCustomer } from "../service/customerService";
+import { deleteCustomer, getCustomer } from "../service/customerService";
 import ReactPaginate from 'react-paginate';
+import Swal from "sweetalert2";
 
 export default function ListCustomer() {
   const [customers, setCustomer] = useState([]);
@@ -11,9 +12,8 @@ export default function ListCustomer() {
 
   const getList = async () => {
     const res = await getCustomer();
-    console.log(res);
-    // setTotalElement(res.total);
     setCustomer(res.data);
+      // setTotalElement(res.total);
     // setTotalPage(res.total_page);
   }
   useEffect(() => {
@@ -23,7 +23,37 @@ export default function ListCustomer() {
 
   }
 
-
+const checkDelete = async(id) =>{
+  console.log(id);
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You will not be able to recover this file!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+  }
+  ).then((res) => {
+    if (res.isConfirmed) {
+      deleteByIdCustomer(id).then(() => {
+        getList().then((data) => {
+        }).then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Edit success fully!!!!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
+      });
+    } else if (res.dismiss === Swal.DismissReason.cancel) {
+    }
+  })
+}
+const deleteByIdCustomer = async(id) =>{
+  await deleteCustomer(id);
+}
   return (
     <body>
       <div className="container-xl">
@@ -68,8 +98,8 @@ export default function ListCustomer() {
                     <td>{customer.typeCustomer.nameType}</td>
                     <td>{customer.address}</td>
                     <td>
-                      <NavLink to={'/customer/edit'} className="settings" title="Settings" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
-                      <NavLink style={{ border: 'none' }} title="Delete" data-toggle="tooltip" className="delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></NavLink>
+                      <NavLink to={`/customer/edit/${customer.id}`} className="settings" title="Edit profile" data-toggle="tooltip"><i className="material-icons"></i></NavLink>
+                      <NavLink style={{ border: 'none' }} onClick={()=>{checkDelete(customer.id)}} title="Delete" data-toggle="tooltip" className="delete" ><i class="fa-solid fa-trash"></i></NavLink>
                     </td>
                   </tr>
                 ))

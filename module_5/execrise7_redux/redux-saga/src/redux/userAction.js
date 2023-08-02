@@ -1,7 +1,6 @@
 import { DeleteUsers, GetUsers } from "../service/userService";
 
 export const fakeLogin = () => {
-    
     return async dispatch => {
         dispatch(GetUser());
         
@@ -20,9 +19,6 @@ export const GetUser = () => {
 
 };
 export const DeleteUser = (id) => {
-    // console.log("123");
-     
-    //  GetUser();
     return async (dispatch) => {
         await DeleteUsers(id);
         // console.log(id);
