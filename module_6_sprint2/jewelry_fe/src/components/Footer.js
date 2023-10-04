@@ -2,7 +2,6 @@ import Logo from "../img/logo_shop_trang_suc.png";
 export  default function Footer(){
     return(
         <>
-
              {/*Footer Start */}
             <div class="container-fluid bg-white footer">
                 <div class="container py-5">

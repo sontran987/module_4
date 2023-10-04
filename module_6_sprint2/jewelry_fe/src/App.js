@@ -1,18 +1,22 @@
 import './App.css';
-import Header from './components/Header';
-import Footer from "./components/Footer";
 import Home from "./components/Home";
+import SignIn from "./components/SignIn";
+import {Route, Routes} from "react-router-dom";
+import DetailProduct from "./components/DetailProduct";
+import Cart from "./components/Cart";
 
 function App() {
     return (
         <>
-        <Header></Header>
-        <Home></Home>
-        <Footer>
-        </Footer>
-</>
-)
-    ;
+            <Routes>
+                <Route path="" element={<Home/>}/>
+                <Route path="/sign-in" element={<SignIn/>}/>
+                <Route path="detail" element={<DetailProduct/>}/>
+                <Route path="cart" element={<Cart/>}/>
+            </Routes>
+        </>
+    )
+        ;
 }
 
 export default App;

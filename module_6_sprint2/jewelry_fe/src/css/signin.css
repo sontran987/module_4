@@ -8,11 +8,8 @@
 }
 body
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    background: #000;
+    background: #ffffff;
 }
 section
 {
@@ -159,6 +156,19 @@ section .signin .content .form .inputBox i
     font-size: 1.35em;
     letter-spacing: 0.05em;
     cursor: pointer;
+}
+.signin .content .form .inputBox button
+{
+    padding: 10px;
+    background: rgba(210, 210, 210, 0.84);
+    color: #000;
+    font-weight: 600;
+    font-size: 1.35em;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px;
+    width: 100%;
 }
 input[type="submit"]:active
 {
