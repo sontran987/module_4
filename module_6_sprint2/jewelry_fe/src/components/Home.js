@@ -5,13 +5,13 @@ import Header from '../components/Header';
 import Footer from "../components/Footer";
 import "../css/style.css"
 import "../css/bootstrap.min.css"
-import "../lib/owlcarousel/assets/owl.carousel.min.css"
 import "../lib/animate/animate.min.css"
 import {Link} from "react-router-dom";
 
 export default function Home() {
     return (
         <>
+
             <Header/>
             {/* carousel */}
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
@@ -37,19 +37,30 @@ export default function Home() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
+
             {/* Product */}
             <div>
                 <div className="container-fluid py-5">
                     <div className="container">
-                        <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{maxWidth: "600px"}}>
+                        <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s"
+                             style={{maxWidth: "600px"}}>
                             <h1 className="text-primary mb-3">Welcome to our product area</h1>
-                            <p className="mb-5">Here we will provide you with quality products that show your nobility</p>
+                            <p className="mb-5">Here we will provide you with quality products that show your
+                                nobility</p>
+                        </div>
+                        {/* search */}
+                        <div>
+                            <form>
+                                <input type={"text"} className="search-product" placeholder="Enter product type"/>
+                                <input type={"search"} className="search-product" placeholder="Enter name product"/>
+                                <button className="btn px-3 btn-search">Search</button>
+                            </form>
                         </div>
                         <div className="row g-4">
                             <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                                 <div className="product-item text-center border h-100 p-2">
-                                    <Link to="detail">
-                                    <img className="img-fluid " src={Anh3} alt=""/>
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh3} alt=""/>
                                         <div className="mb-2">
                                             <small className="fa fa-star text-primary"></small>
                                             <small className="fa fa-star text-primary"></small>
@@ -61,44 +72,13 @@ export default function Home() {
                                         <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
                                         <h5 className="text-primary mb-3">$99.99</h5>
                                     </Link>
-                                        <Link to="cart" className="btn btn-outline-primary px-3">Add To Cart</Link>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                                <div className="product-item text-center border h-100 p-4">
-                                    <img className="img-fluid mb-4" src="img/product-1.png" alt=""/>
-                                        <div className="mb-2">
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small>(99)</small>
-                                        </div>
-                                        <a href="" className="h6 d-inline-block mb-2">Anti Hair Fall Shampoo</a>
-                                        <h5 className="text-primary mb-3">$99.99</h5>
-                                        <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                                <div className="product-item text-center border h-100 p-4">
-                                    <img className="img-fluid mb-4" src="img/product-2.png" alt=""/>
-                                        <div className="mb-2">
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small className="fa fa-star text-primary"></small>
-                                            <small>(99)</small>
-                                        </div>
-                                        <a href="" className="h6 d-inline-block mb-2">Hair Growing Shampoo</a>
-                                        <h5 className="text-primary mb-3">$99.99</h5>
-                                        <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
                                 </div>
                             </div>
                             <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                                <div className="product-item text-center border h-100 p-4">
-                                    <img className="img-fluid mb-4" src="img/product-1.png" alt=""/>
+                                <div className="product-item text-center border h-100 p-2">
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh3} alt="" height="100"/>
                                         <div className="mb-2">
                                             <small className="fa fa-star text-primary"></small>
                                             <small className="fa fa-star text-primary"></small>
@@ -107,14 +87,16 @@ export default function Home() {
                                             <small className="fa fa-star text-primary"></small>
                                             <small>(99)</small>
                                         </div>
-                                        <a href="" className="h6 d-inline-block mb-2">Hair Shining Shampoo</a>
+                                        <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
                                         <h5 className="text-primary mb-3">$99.99</h5>
-                                        <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
+                                    </Link>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
                                 </div>
                             </div>
-                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                                <div className="product-item text-center border h-100 p-4">
-                                    <img className="img-fluid mb-4" src="img/product-2.png" alt=""/>
+                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                                <div className="product-item text-center border h-100 p-2">
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh3} alt="" height="100"/>
                                         <div className="mb-2">
                                             <small className="fa fa-star text-primary"></small>
                                             <small className="fa fa-star text-primary"></small>
@@ -123,14 +105,16 @@ export default function Home() {
                                             <small className="fa fa-star text-primary"></small>
                                             <small>(99)</small>
                                         </div>
-                                        <a href="" className="h6 d-inline-block mb-2">Anti-dandruff Shampoo</a>
+                                        <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
                                         <h5 className="text-primary mb-3">$99.99</h5>
-                                        <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
+                                    </Link>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
                                 </div>
                             </div>
-                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                                <div className="product-item text-center border h-100 p-4">
-                                    <img className="img-fluid mb-4" src="img/product-1.png" alt=""/>
+                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                                <div className="product-item text-center border h-100 p-2">
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh3} alt="" height="100"/>
                                         <div className="mb-2">
                                             <small className="fa fa-star text-primary"></small>
                                             <small className="fa fa-star text-primary"></small>
@@ -139,14 +123,16 @@ export default function Home() {
                                             <small className="fa fa-star text-primary"></small>
                                             <small>(99)</small>
                                         </div>
-                                        <a href="" className="h6 d-inline-block mb-2">Anti Hair Fall Shampoo</a>
+                                        <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
                                         <h5 className="text-primary mb-3">$99.99</h5>
-                                        <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
+                                    </Link>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
                                 </div>
                             </div>
-                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                                <div className="product-item text-center border h-100 p-4">
-                                    <img className="img-fluid mb-4" src="img/product-2.png" alt=""/>
+                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                                <div className="product-item text-center border h-100 p-2">
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh3} alt="" height="100"/>
                                         <div className="mb-2">
                                             <small className="fa fa-star text-primary"></small>
                                             <small className="fa fa-star text-primary"></small>
@@ -155,9 +141,46 @@ export default function Home() {
                                             <small className="fa fa-star text-primary"></small>
                                             <small>(99)</small>
                                         </div>
-                                        <a href="" className="h6 d-inline-block mb-2">Hair Growing Shampoo</a>
+                                        <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
                                         <h5 className="text-primary mb-3">$99.99</h5>
-                                        <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
+                                    </Link>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
+                                </div>
+                            </div>
+                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                                <div className="product-item text-center border h-100 p-2">
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh1} alt="" height="100"/>
+                                        <div className="mb-2">
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small>(99)</small>
+                                        </div>
+                                        <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
+                                        <h5 className="text-primary mb-3">$99.99</h5>
+                                    </Link>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
+                                </div>
+                            </div>
+                            <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                                <div className="product-item text-center border h-100 p-2">
+                                    <Link to="/detail">
+                                        <img className=" img-cards" src={Anh2} alt="" height="100"/>
+                                        <div className="mb-2">
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small className="fa fa-star text-primary"></small>
+                                            <small>(99)</small>
+                                        </div>
+                                        <p className="h6 d-inline-block mb-2">Hair Shining Shampoo</p>
+                                        <h5 className="text-primary mb-3">$99.99</h5>
+                                    </Link>
+                                    <button className="btn btn-outline-primary px-3">Add To Cart</button>
                                 </div>
                             </div>
                             <div className="col-12 text-center">

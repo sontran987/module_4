@@ -1,7 +1,8 @@
 import "../css/cart.css"
+import {Link} from "react-router-dom";
 
-export default function Cart(){
-    return(
+export default function Cart() {
+    return (
         <>
             <div className="card">
                 <div className="row">
@@ -9,7 +10,7 @@ export default function Cart(){
                         <div className="title">
                             <div className="row">
                                 <div className="col"><h4><b>Shopping Cart</b></h4></div>
-                                <div className="col align-self-center text-right text-muted">3 items</div>
+                                <div className="col justify-content-end d-flex">3 items</div>
                             </div>
                         </div>
                         <div className="cart-order">
@@ -25,7 +26,8 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">$44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">
@@ -39,7 +41,8 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">$44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">
@@ -53,7 +56,8 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">$44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">
@@ -67,7 +71,8 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">&euro; 44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">
@@ -81,7 +86,8 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">&euro; 44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">
@@ -95,7 +101,8 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">&euro; 44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">
@@ -109,33 +116,34 @@ export default function Cart(){
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">&euro; 44.00 <span className="close">&#10005;</span></div>
+                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i></button></span></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="back-to-shop"><a href="#">&leftarrow;<span
-                            className="text-muted">Back to shop</span></a></div>
+                        <div className="back-to-shop"><Link to="/"> <i className="fa-solid fa-left-long"></i> <span
+                            className="text-muted">Back to shop</span></Link></div>
                     </div>
                     <div className="col-md-4 summary">
                         <div><h5><b>Invoice information</b></h5></div>
                         <hr/>
-                            <div className="row">
-                                <div className="col">EXPECTED</div>
-                                <div className="col text-right">$ 132.00</div>
-                            </div>
-                            <form>
-                                <input type="text" className="information" placeholder="Enter information"/>
-                                    <input type="text" className="information" placeholder="Enter information"/>
-                                        <input type="text" className="information" placeholder="Enter information"/>
-                                            <input type="text" className="information" placeholder="Enter information"/>
-                                                <textarea className="information"
-                                                          placeholder="Enter information"></textarea>
-                            </form>
-                            <div className="row" style={{borderTop: "1px solid rgba(0,0,0,.1)", padding: "2vh 0"}}>
-                                <div className="col">TOTAL PRICE</div>
-                                <div className="col text-right">&euro; 137.00</div>
-                            </div>
-                            <button className="btn-cart">CHECKOUT</button>
+                        <div className="row">
+                            <div className="col">EXPECTED</div>
+                            <div className="col text-right">$ 132.00</div>
+                        </div>
+                        <form>
+                            <input type="text" className="information input" placeholder="Enter information"/>
+                            <input type="text" className="information input" placeholder="Enter information"/>
+                            <input type="text" className="information input" placeholder="Enter information"/>
+                            <input type="text" className="information input" placeholder="Enter information"/>
+                            <textarea className="information"
+                                      placeholder="Enter information"></textarea>
+                        </form>
+                        <div className="row" style={{borderTop: "1px solid rgba(0,0,0,.1)", padding: "2vh 0"}}>
+                            <div className="col">TOTAL PRICE</div>
+                            <div className="col text-right">$ 137.00</div>
+                        </div>
+                        <button className="btn-cart pay">PAY</button>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,6 @@
 import Logo from "../img/logo_shop_trang_suc.png";
 import "../css/style.css"
 import "../css/bootstrap.min.css"
-import "../lib/owlcarousel/assets/owl.carousel.min.css"
 import "../lib/animate/animate.min.css"
 import Cart from "../img/cart.png"
 import {NavLink} from "react-router-dom";
@@ -27,10 +26,10 @@ export default function Header() {
                                 <a href="contact.html" className="nav-item nav-link">Contact</a>
                                 <NavLink to={"/sign-in"} className="nav-item nav-link">Sign in</NavLink>
                             </div>
-                            <a href="" className="py-2 d-none d-lg-inline-block position-relative "><img style={{opacity: "0.8"}}
+                            <NavLink to="/cart" className="py-2 d-none d-lg-inline-block position-relative "><img style={{opacity: "0.8"}}
                                                                                        height={40} width={50} src={Cart}
                                                                                        alt="thanh"/>
-                            <span className="cart-number">0</span></a>
+                            <span className="cart-number">0</span></NavLink>
                         </div>
                     </nav>
                 </div>

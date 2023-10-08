@@ -12,7 +12,10 @@ body {
 }
 
 .card {
-
+    background-color: #fff;
+    padding: 4vh 5vh;
+    /*border-bottom-left-radius: 1rem;*/
+    /*border-top-left-radius: 1rem;*/
     margin: auto;
     max-width: 950px;
     width: 100%;
@@ -27,12 +30,6 @@ body {
     }
 }
 
-.cart {
-    background-color: #fff;
-    padding: 4vh 5vh;
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
-}
 
 .cart-order {
     overflow-x: hidden;
@@ -45,6 +42,8 @@ body {
     margin: 5px 0;
     width: 100%;
     max-height: 15rem;
+    padding: 1vh;
+
 }
 
 @media (max-width: 767px) {
@@ -102,8 +101,9 @@ a {
 }
 
 .close {
-    margin-left: auto;
+    float: right;
     font-size: 0.7rem;
+    margin-right: 10px;
 }
 
 .img-cart {
@@ -135,13 +135,12 @@ select {
     background-color: rgb(247, 247, 247);
 }
 
-input {
+.input {
     border: 1px solid rgba(0, 0, 0, 0.137);
-    padding: 1vh;
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
     outline: none;
     width: 100%;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(255, 255, 255);
 }
 
 input:focus::-webkit-input-placeholder {
@@ -149,28 +148,23 @@ input:focus::-webkit-input-placeholder {
 }
 
 .btn-cart {
-    background-color: #90bc79;
-    color: white;
     width: 100%;
-    font-size: 0.7rem;
-    margin-top: 4vh;
-    padding: 1vh;
-    border-radius: 5px;
+    font-size: 1rem;
+    border: 1px #ffffff;
+    background-color: #ffffff;
 }
-
+.pay{
+    background-color: #90bc79!important;
+}
 .btn-cart:focus {
     box-shadow: none;
     outline: none;
     box-shadow: none;
-    color: white;
     -webkit-box-shadow: none;
     -webkit-user-select: none;
     transition: none;
 }
 
-.btn-cart:hover {
-    color: white;
-}
 
 a {
     color: black;
@@ -179,11 +173,4 @@ a {
 a:hover {
     color: black;
     text-decoration: none;
-}
-
-#code {
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253), rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
-    background-repeat: no-repeat;
-    background-position-x: 95%;
-    background-position-y: center;
 }

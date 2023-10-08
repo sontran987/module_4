@@ -38,6 +38,11 @@
     border: 1px solid #BFBFBF;
     color: #FF8243;
 }
+.img-cards{
+    width: 100% !important;
+    height: 250px !important;
+    margin-left: -3.9px;
+}
 img.animated.pulse {
     animation-duration: 5s;
 }
@@ -251,9 +256,23 @@ img.animated.pulse {
     border-color: rgba(255, 255, 255, .2) !important;
 }
 
-
+.search-product{
+    border-radius: 5px;
+    border: 1px ;
+    background-color: #c6d9bd;
+    margin: 5px 5px 0px 5px;
+    padding-left: 8px;
+    padding-right: 4px;
+    height: 42px;
+}
+.btn-search{
+    margin-bottom: 2px;
+    background: linear-gradient(90deg, #bfd94e 0%, #00d055 100%);
+    color: white !important;
+}
 /*** Product ***/
 .product-item {
+    border-radius: 10px;
     transition: .1s;
 }
 
@@ -438,4 +457,36 @@ img.animated.pulse {
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+.toastMessage {
+    background-color: #c0c031;
+    color: #132c88;
+    padding: 15px;
+    border-radius: 30px;
+    position: fixed;
+    top: 100px;
+    right: 0px;
+    font-weight: bold;
+    z-index: 1;
+    display: none;
+    border-left: 0;
+    animation: slideInRight ease 0.5s, fadeOut linear 2s 5s forwards;
+    transition: all linear 0.3s;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 3em));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
 }
