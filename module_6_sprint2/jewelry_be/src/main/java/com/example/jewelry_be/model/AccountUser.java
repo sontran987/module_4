@@ -7,7 +7,7 @@ public class AccountUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String email;
+    private String userName;
     private String userPassword;
     private Boolean flagDeleted;
     @ManyToOne
@@ -18,7 +18,7 @@ public class AccountUser {
 
     public AccountUser(Integer id, String email, String userPassword, Boolean flagDeleted, RoleUser roleUser) {
         this.id = id;
-        this.email = email;
+        this.userName = email;
         this.userPassword = userPassword;
         this.flagDeleted = flagDeleted;
         this.roleUser = roleUser;
@@ -32,12 +32,12 @@ public class AccountUser {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserName(String email) {
+        this.userName = email;
     }
 
     public String getUserPassword() {
@@ -63,4 +63,5 @@ public class AccountUser {
     public void setRoleUser(RoleUser roleUser) {
         this.roleUser = roleUser;
     }
+
 }
