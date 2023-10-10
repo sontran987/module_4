@@ -20,14 +20,14 @@ export default function Header() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarCollapse">
                             <div className="navbar-nav ms-auto">
-                                <a href="index.html" className="nav-item nav-link active">Home</a>
-                                <a href="about.html" className="nav-item nav-link">About</a>
-                                <a href="product.html" className="nav-item nav-link">Products</a>
-                                <a href="contact.html" className="nav-item nav-link">Contact</a>
+                                <a href="#" className="nav-item nav-link active">Home</a>
+                                <a href="#" className="nav-item nav-link">About</a>
+                                <a href="#" className="nav-item nav-link">Products</a>
+                                <a href="#" className="nav-item nav-link">Contact</a>
                                 <NavLink to={"/sign-in"} className="nav-item nav-link">Sign in</NavLink>
                             </div>
                             <NavLink to="/cart" className="py-2 d-none d-lg-inline-block position-relative "><img style={{opacity: "0.8"}}
-                                                                                       height={40} width={50} src={Cart}
+                                                                                       height={30} width={30} src={Cart}
                                                                                        alt="thanh"/>
                             <span className="cart-number">0</span></NavLink>
                         </div>

@@ -1,16 +1,21 @@
 package com.example.jewelry_be.model;
 
-public class JwtResponse {
-    private String token;
-    private String userName;
+import java.io.Serializable;
+
+public class JwtResponse implements Serializable {
+
+    private static final long serialVersionUID = -8091879091924046844L;
+    private final String token;
+    private String nameUser;
     private String role;
 
-    public JwtResponse() {
+    public JwtResponse(String token) {
+        this.token = token;
     }
 
     public JwtResponse(String token, String userName, String role) {
         this.token = token;
-        this.userName = userName;
+        this.nameUser = userName;
         this.role = role;
     }
 
@@ -18,16 +23,12 @@ public class JwtResponse {
         return token;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public String getNameUser() {
+        return nameUser;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public String getRole() {

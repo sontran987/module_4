@@ -4,7 +4,8 @@ import Anh2 from "../img/nhan_kim_cuong1.jpg";
 import "../css/DetailProduct.css"
 import Header from "./Header";
 import {Link} from "react-router-dom";
-import Carousel from 'react-multi-carousel';
+import Footer from "./Footer";
+
 export default function DetailProduct() {
     const responsive = {
         superLargeDesktop: {
@@ -203,8 +204,7 @@ export default function DetailProduct() {
                     </div>
                 </div>
             </div>
-            <Carousel responsive={responsive} >
-            </Carousel>
+            <Footer/>
         </>
     );
 }

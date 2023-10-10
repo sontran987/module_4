@@ -6,8 +6,8 @@ name_role VARCHAR(50)
 );
 create TABLE account_user(
 id int PRIMARY KEY AUTO_INCREMENT,
-email VARCHAR(50) NOT NULL UNIQUE ,
-user_password VARCHAR(50) NOT NULL,
+user_name VARCHAR(255) NOT NULL UNIQUE ,
+user_password VARCHAR(255) NOT NULL,
 flag_deleted bit(1),
 role_user_id int , FOREIGN KEY(role_user_id) REFERENCES role_user(id)
 );
@@ -42,7 +42,7 @@ supplier_id int , FOREIGN KEY(supplier_id) REFERENCES supplier(id)
 );
 create TABLE image(
 id int PRIMARY KEY AUTO_INCREMENT,
-image LONGTEXT,
+image_url LONGTEXT,
 product_id int , FOREIGN KEY(product_id) REFERENCES product(id)
 );
 create TABLE order_user (
@@ -72,16 +72,16 @@ product_id int ,FOREIGN KEY(product_id) REFERENCES product(id)
 INSERT INTO jewelry_shop.role_user (id, name_role) VALUES (1, 'ROLE_Admin');
 INSERT INTO jewelry_shop.role_user (id, name_role) VALUES (2, 'ROLE_User');
  -- account 
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (1, 'lsolon0@hostgator.com', 'nX6}I{F6}PNRT', false, 2);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (2, 'gbiskupek1@t-online.de', 'pH1#hqrQ=?u<+', false, 1);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (3, 'sbinley2@army.mil', 'tD9?`L4=', false, 2);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (4, 'jmerrigan3@delicious.com', 'xG9_,_+G<$1)', false, 1);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (5, 'emundy4@ifeng.com', 'hV3>Jaz~7E(@,', false, 2);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (6, 'glecount5@nba.com', 'eZ3*t!''b$KY3+t+', true, 2);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (7, 'rbourcq6@sourceforge.net', 'uB5.Zb,/', false, 1);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (8, 'wtapley7@artisteer.com', 'vE0_!u.k|\~x~', false, 2);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (9, 'bwitherop8@reddit.com', 'xQ7$Cs88_', false, 2);
-insert into account_user (id, email, user_password, flag_deleted, role_user_id) values (10, 'aletchmore9@desdev.cn', 'tZ9}Y1R~$u', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (1, 'lsolon0@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (2, 'gbiskupek1@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 1);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (3, 'sbinley2@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (4, 'jmerrigan3@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 1);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (5, 'emundy4@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (6, 'glecount5@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (7, 'rbourcq6@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 1);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (8, 'wtapley7@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (9, 'bwitherop8@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
+INSERT INTO jewelry_shop.account_user (id, user_name, user_password, flag_deleted, role_user_id) VALUES (10, 'aletchmore9@gmail.com', '$2a$12$Gy8jAyCLPAt57w1nYFBlRuvVPSTWvwoGImD4C0dabv76hfPmghAQu', false, 2);
 -- user_information
 insert into user_information (id, address, birthday, flag_deleted, id_card, name_user, phone_number, account_user_id) values (1, 'Apt 1252', '2000-08-05', true, 1, 'Sharity Bayns', 9048832111, 4);
 insert into user_information (id, address, birthday, flag_deleted, id_card, name_user, phone_number, account_user_id) values (2, 'Apt 1574', '2000-06-09', true, 8, 'Val Justis', 8818158216, 5);
@@ -132,21 +132,21 @@ insert into product (id, describe_product, name_product, price, flag_deleted, su
 insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (10, 'Cazzie Mc Queen', 'Tom Born', 7159135, false, 3, 8);
 
 -- image
-insert into image (id, image, product_id) values (1, 'http://dummyimage.com/121x100.png/cc0000/ffffff', 9);
-insert into image (id, image, product_id) values (2, 'http://dummyimage.com/109x100.png/ff4444/ffffff', 10);
-insert into image (id, image, product_id) values (3, 'http://dummyimage.com/177x100.png/cc0000/ffffff', 8);
-insert into image (id, image, product_id) values (4, 'http://dummyimage.com/245x100.png/ff4444/ffffff', 1);
-insert into image (id, image, product_id) values (5, 'http://dummyimage.com/128x100.png/5fa2dd/ffffff', 4);
-insert into image (id, image, product_id) values (6, 'http://dummyimage.com/166x100.png/ff4444/ffffff', 9);
-insert into image (id, image, product_id) values (7, 'http://dummyimage.com/103x100.png/dddddd/000000', 2);
-insert into image (id, image, product_id) values (8, 'http://dummyimage.com/212x100.png/ff4444/ffffff', 1);
-insert into image (id, image, product_id) values (9, 'http://dummyimage.com/134x100.png/5fa2dd/ffffff', 8);
-insert into image (id, image, product_id) values (10, 'http://dummyimage.com/167x100.png/5fa2dd/ffffff', 9);
-insert into image (id, image, product_id) values (11, 'http://dummyimage.com/172x100.png/cc0000/ffffff', 7);
-insert into image (id, image, product_id) values (12, 'http://dummyimage.com/181x100.png/ff4444/ffffff', 3);
-insert into image (id, image, product_id) values (13, 'http://dummyimage.com/228x100.png/cc0000/ffffff', 5);
-insert into image (id, image, product_id) values (14, 'http://dummyimage.com/140x100.png/cc0000/ffffff', 6);
-insert into image (id, image, product_id) values (15, 'http://dummyimage.com/131x100.png/cc0000/ffffff', 6);
+insert into image (id, image_url, product_id) values (1, 'http://dummyimage.com/121x100.png/cc0000/ffffff', 9);
+insert into image (id, image_url, product_id) values (2, 'http://dummyimage.com/109x100.png/ff4444/ffffff', 10);
+insert into image (id, image_url, product_id) values (3, 'http://dummyimage.com/177x100.png/cc0000/ffffff', 8);
+insert into image (id, image_url, product_id) values (4, 'http://dummyimage.com/245x100.png/ff4444/ffffff', 1);
+insert into image (id, image_url, product_id) values (5, 'http://dummyimage.com/128x100.png/5fa2dd/ffffff', 4);
+insert into image (id, image_url, product_id) values (6, 'http://dummyimage.com/166x100.png/ff4444/ffffff', 9);
+insert into image (id, image_url, product_id) values (7, 'http://dummyimage.com/103x100.png/dddddd/000000', 2);
+insert into image (id, image_url, product_id) values (8, 'http://dummyimage.com/212x100.png/ff4444/ffffff', 1);
+insert into image (id, image_url, product_id) values (9, 'http://dummyimage.com/134x100.png/5fa2dd/ffffff', 8);
+insert into image (id, image_url, product_id) values (10, 'http://dummyimage.com/167x100.png/5fa2dd/ffffff', 9);
+insert into image (id, image_url, product_id) values (11, 'http://dummyimage.com/172x100.png/cc0000/ffffff', 7);
+insert into image (id, image_url, product_id) values (12, 'http://dummyimage.com/181x100.png/ff4444/ffffff', 3);
+insert into image (id, image_url, product_id) values (13, 'http://dummyimage.com/228x100.png/cc0000/ffffff', 5);
+insert into image (id, image_url, product_id) values (14, 'http://dummyimage.com/140x100.png/cc0000/ffffff', 6);
+insert into image (id, image_url, product_id) values (15, 'http://dummyimage.com/131x100.png/cc0000/ffffff', 6);
 -- order_cart
 insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (1, 5, false, 1, 10);
 insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (2, 3, true, 2, 2);

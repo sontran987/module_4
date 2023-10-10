@@ -10,6 +10,7 @@ body
 {
     min-height: 100vh;
     background: #ffffff;
+
 }
 section
 {
@@ -100,7 +101,7 @@ section .signin .content .form .inputBox
     position: relative;
     width: 100%;
 }
-section .signin .content .form .inputBox input
+section .signin .content .form .inputBox .input
 {
     position: relative;
     width: 100%;
@@ -123,8 +124,8 @@ section .signin .content .form .inputBox i
     transition: 0.5s;
     pointer-events: none;
 }
-.signin .content .form .inputBox input:focus ~ i,
-.signin .content .form .inputBox input:valid ~ i
+.signin .content .form .inputBox .input:focus ~ i,
+.signin .content .form .inputBox .input:valid ~ i
 {
     transform: translateY(-7.5px);
     font-size: 0.8em;
@@ -147,7 +148,7 @@ section .signin .content .form .inputBox i
     color: #d0b650;
     font-weight: 600;
 }
-.signin .content .form .inputBox input[type="submit"]
+.signin .content .form .inputBox .input[type="submit"]
 {
     padding: 10px;
     background: #00ff00;
@@ -170,7 +171,7 @@ section .signin .content .form .inputBox i
     border: 1px;
     width: 100%;
 }
-input[type="submit"]:active
+.input[type="submit"]:active
 {
     opacity: 0.6;
 }

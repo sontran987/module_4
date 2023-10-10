@@ -1,6 +1,6 @@
 import Anh3 from "../img/bo_trang_suc.jpg";
-import Anh1 from "../img/da-quy-la-gi.png";
-import Anh2 from "../img/nhan_kim_cuong1.jpg";
+import Anh1 from "https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-diamond-jewelry-advertising-psd-material-image_195800.jpg";
+import Anh2 from "https://png.pngtree.com/thumb_back/fh260/background/20230527/pngtree-gold-and-white-display-with-golden-jewelry-item-on-the-wall-image_2657990.jpg";
 import Header from '../components/Header';
 import Footer from "../components/Footer";
 import "../css/style.css"
@@ -17,13 +17,13 @@ export default function Home() {
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Anh3} className="d-block w-100" alt="..." width={100} height={500}/>
+                        <img src={Anh3} className="d-block w-100 imgs" alt="..." width={100} height={500}/>
                     </div>
                     <div className="carousel-item">
-                        <img src={Anh1} className="d-block w-100" alt="..." width={100} height={500}/>
+                        <img src={Anh1} className="d-block w-100 imgs" alt="..." width={100} height={500}/>
                     </div>
                     <div className="carousel-item">
-                        <img src={Anh2} className="d-block w-100" alt="..." width={100} height={500}/>
+                        <img src={Anh2} className="d-block w-100 imgs" alt="..." width={100} height={500}/>
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"

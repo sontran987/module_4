@@ -8,7 +8,7 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(columnDefinition = "LONGTEXT")
-    private String image;
+    private String imageUrl;
     @ManyToOne
     private Product product;
 
@@ -17,7 +17,7 @@ public class Image {
 
     public Image(Integer id, String image, Product product) {
         this.id = id;
-        this.image = image;
+        this.imageUrl = image;
         this.product = product;
     }
 
@@ -29,12 +29,12 @@ public class Image {
         this.id = id;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String image) {
+        this.imageUrl = image;
     }
 
     public Product getProduct() {

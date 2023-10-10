@@ -10,14 +10,14 @@ public class RoleUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String nameRole;
 
     public RoleUser() {
     }
 
     public RoleUser(Integer id, String name) {
         this.id = id;
-        this.name = name;
+        this.nameRole = name;
     }
 
     public Integer getId() {
@@ -28,11 +28,11 @@ public class RoleUser {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameRole() {
+        return nameRole;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameRole(String name) {
+        this.nameRole = name;
     }
 }

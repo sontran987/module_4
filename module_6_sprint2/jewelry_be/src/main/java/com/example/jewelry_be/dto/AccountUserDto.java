@@ -3,7 +3,9 @@ package com.example.jewelry_be.dto;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-public class AccountUserDto implements Validator {
+import java.io.Serializable;
+
+public class AccountUserDto {
     private String userName;
     private String userPassword;
 
@@ -31,15 +33,4 @@ public class AccountUserDto implements Validator {
         this.userPassword = userPassword;
     }
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
-    }
-
-    @Override
-    public void validate(Object target, Errors errors) {
-        AccountUserDto accountUserDto = (AccountUserDto) target;
-        ValidateAccountUser.checkValidateAppUserName(accountUserDto.getUserName(), errors);
-        ValidateAccountUser.checkValidateAppUserPassword(accountUserDto.getUserPassword(), errors);
-    }
 }
