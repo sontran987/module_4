@@ -7,7 +7,7 @@
 
 #hannah .btn-minus,
 #hannah .btn-plus {
-    background-color: lightblue;
+    background-color: #ffffff;
     color: black;
     font-weight: bold;
     border: 1px solid whitesmoke !important;
@@ -73,7 +73,7 @@
 }
 
 .title-detail-product {
-    color: #25c968;
+    color: #90bc79;
     padding-left: 3px;
 }
 

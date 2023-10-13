@@ -11,6 +11,8 @@ public class OrderDetail {
     private String price;
     private Boolean flagDeleted;
     @ManyToOne
+    private Size size;
+    @ManyToOne
     private OrderUser orderUser;
     @ManyToOne
     private Product product;
@@ -18,13 +20,22 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(Integer id, Integer quantity, String price, Boolean flagDeleted, OrderUser orderUser, Product product) {
+    public OrderDetail(Integer id, Integer quantity, String price, Boolean flagDeleted, Size size, OrderUser orderUser, Product product) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
         this.flagDeleted = flagDeleted;
+        this.size = size;
         this.orderUser = orderUser;
         this.product = product;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     public Integer getId() {

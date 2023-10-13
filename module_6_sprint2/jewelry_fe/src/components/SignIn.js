@@ -12,12 +12,14 @@ export default function SignIn() {
     // });
     const navigate = useNavigate();
     useEffect(() => {
-        document.title = 'Jewelry - Đăng nhập'
-    }, [])
+        document.title = 'Jewelry - Sign in'
+    }, []);
     const loginByUserName = async (value) => {
         try {
             const result = await login(value);
             localStorage.setItem("jwt", result.token)
+            localStorage.setItem("nameUser", result.nameUser)
+            localStorage.setItem("role", result.role)
             const tempURL = localStorage.getItem("tempURL");
             localStorage.removeItem("tempURL");
             if (tempURL) {
@@ -25,7 +27,6 @@ export default function SignIn() {
             } else {
                 navigate('/');
             }
-            console.log(result);
         } catch (e) {
             Swal.fire({
                 icon: 'error',

@@ -14,8 +14,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 
 @CrossOrigin(origins = "*")
@@ -61,6 +67,19 @@ public class AccountUserController {
         return ResponseEntity.ok()
                 .body(new JwtResponse(jwtToken, userInfor.getNameUser(),
                         authority != null ? authority.getAuthority() : null));
+    }
+    @GetMapping("/logoutSuccessful")
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null){
+            SecurityContextHolder.clearContext();
+//            redirectAttributes.addFlashAttribute("message","successful logout");
+        }
+        HttpSession session = request.getSession();
+        if (session != null) {
+            session.invalidate();
+        }
+        return ResponseEntity.ok().body("Log out success.");
     }
 
 }

@@ -10,6 +10,8 @@ public class OrderCart {
     private Integer quantity;
     private Boolean flagDeleted;
     @ManyToOne
+    private Size size;
+    @ManyToOne
     private UserInformation userInformation;
     @ManyToOne
     private Product product;
@@ -17,12 +19,21 @@ public class OrderCart {
     public OrderCart() {
     }
 
-    public OrderCart(Integer id, Integer quantity, Boolean flagDeleted, UserInformation userInformation, Product product) {
+    public OrderCart(Integer id, Integer quantity, Boolean flagDeleted, Size size, UserInformation userInformation, Product product) {
         this.id = id;
         this.quantity = quantity;
         this.flagDeleted = flagDeleted;
+        this.size = size;
         this.userInformation = userInformation;
         this.product = product;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     public Integer getId() {

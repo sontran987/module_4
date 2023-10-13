@@ -6,9 +6,11 @@
     transition: opacity .5s ease-out, visibility 0s linear .5s;
     z-index: 99999;
 }
-.headers{
+
+.headers {
     background-color: rgb(255, 255, 255);
 }
+
 #spinner.show {
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
@@ -22,6 +24,7 @@
     bottom: 45px;
     z-index: 99;
 }
+
 .cart-number {
     position: absolute;
     top: 0px;
@@ -36,16 +39,38 @@
     font-weight: 600;
     color: #FF8243;
 }
-.img-cards{
+
+.img-cards {
     width: 100% !important;
     height: 250px !important;
     margin-left: -3.9px;
 }
+
 img.animated.pulse {
     animation-duration: 5s;
 }
-.imgs{
+
+.imgs {
     object-fit: scale-down;
+}
+
+.text-user-name {
+    border: 1px white;
+    border-radius: 5px;
+    background-color: #90bc79 !important;
+    font-size: 15px;
+    text-align: center;
+    min-width: 9.5rem !important;
+
+}
+
+.menu-infor {
+    border: 0px !important;
+    text-align: center;
+    min-width: 9.5rem !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+
 }
 
 /*** Button ***/
@@ -125,7 +150,7 @@ img.animated.pulse {
         background: var(--bs-primary);
     }
 
-    .navbar .navbar-nav .nav-link  {
+    .navbar .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
@@ -176,7 +201,7 @@ img.animated.pulse {
     z-index: 1;
 }
 
-.hero-header .breadcrumb-item+.breadcrumb-item::before {
+.hero-header .breadcrumb-item + .breadcrumb-item::before {
     color: var(--bs-light);
 }
 
@@ -257,20 +282,23 @@ img.animated.pulse {
     border-color: rgba(255, 255, 255, .2) !important;
 }
 
-.search-product{
+.search-product {
     border-radius: 5px;
-    border: 1px ;
-    background-color: #c6d9bd;
+    border: 1px;
+    background-color: #90bc79;
     margin: 5px 5px 0px 5px;
     padding-left: 8px;
     padding-right: 4px;
     height: 42px;
+    min-width: 5rem;
 }
-.btn-search{
+
+.btn-search {
     margin-bottom: 2px;
     background: linear-gradient(90deg, #bfd94e 0%, #00d055 100%);
     color: white !important;
 }
+
 /*** Product ***/
 .product-item {
     border-radius: 10px;
@@ -459,6 +487,7 @@ img.animated.pulse {
     padding-right: 0;
     border-right: none;
 }
+
 .toastMessage {
     background-color: #c0c031;
     color: #132c88;

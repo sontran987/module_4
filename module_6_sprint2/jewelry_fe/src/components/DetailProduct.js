@@ -5,6 +5,7 @@ import "../css/DetailProduct.css"
 import Header from "./Header";
 import {Link} from "react-router-dom";
 import Footer from "./Footer";
+import {useEffect} from "react";
 
 export default function DetailProduct() {
     const responsive = {
@@ -30,6 +31,9 @@ export default function DetailProduct() {
             slidesToSlide: 2
         }
     };
+    useEffect(() => {
+        document.title = 'Jewelry - Detail product'
+    }, []);
     return (
         <>
             <Header/>
@@ -139,7 +143,7 @@ export default function DetailProduct() {
                                 <h4>
                                     <span>1000000$</span>
                                 </h4>
-                                <div style={{backgroundColor: "lightblue", borderRadius: 10}} className="p-2">
+                                <div style={{backgroundColor: "#90bc79", borderRadius: 10}} className="p-2">
                                     <p>Describe: <span> Made by artist ThahJay, it has the meaning of concentric eternity and is made of 9999 gold with 18-karat diamonds.</span>
                                     </p>
                                 </div>

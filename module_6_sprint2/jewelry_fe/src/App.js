@@ -4,8 +4,10 @@ import SignIn from "./components/SignIn";
 import {Route, Routes} from "react-router-dom";
 import DetailProduct from "./components/DetailProduct";
 import Cart from "./components/Cart";
+import {axiosClient} from "./service/AccountUserService";
 
 function App() {
+    axiosClient();
     return (
         <>
             <Routes>

@@ -1,7 +1,12 @@
 import "../css/cart.css"
 import {Link} from "react-router-dom";
+import {useEffect} from "react";
 
 export default function Cart() {
+
+    useEffect(() => {
+        document.title = 'Jewelry - Shop '
+    }, []);
     return (
         <>
             <div className="card">
@@ -26,8 +31,10 @@ export default function Cart() {
                                     <div className="col">
                                         <a href="#">-</a><a href="#" className="border">1</a><a href="#">+</a>
                                     </div>
-                                    <div className="col">$ 44.00 <span className="close"><button className="btn-cart">
-                                        <i className="fa-solid fa-xmark"></i></button></span></div>
+                                    <div className="col">$ 44.00 <span className="close">
+                                        <button className="btn-cart">
+                                        <i className="fa-solid fa-xmark"></i>
+                                    </button></span></div>
                                 </div>
                             </div>
                             <div className="row border-top border-bottom">

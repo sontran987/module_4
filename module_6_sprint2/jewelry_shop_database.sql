@@ -31,12 +31,23 @@ create TABLE supplier(
 id int PRIMARY KEY AUTO_INCREMENT,
 name_supplier VARCHAR(100) 
 );
+create TABLE category_product(
+id int PRIMARY KEY AUTO_INCREMENT,
+category_product_name VARCHAR(100)
+);
+create TABLE size(
+id int PRIMARY KEY AUTO_INCREMENT,
+size_name VARCHAR(100),
+conversion_rate DOUBLE
+);
 create TABLE product(
 id int PRIMARY KEY AUTO_INCREMENT,
-name_product VARCHAR(50) NOT NULL ,
-describe_product VARCHAR(100),
-price VARCHAR(20) NOT NULL ,
+name_product VARCHAR(255) NOT NULL ,
+describe_product LONGTEXT,
+quantity int not null,
+price DOUBLE NOT NULL ,
 flag_deleted bit(1),
+category_product_id int, FOREIGN KEY(category_product_id) REFERENCES category_product(id),
 type_product_id int , FOREIGN KEY(type_product_id) REFERENCES type_product(id),
 supplier_id int , FOREIGN KEY(supplier_id) REFERENCES supplier(id)
 );
@@ -57,6 +68,7 @@ id int PRIMARY KEY AUTO_INCREMENT ,
 quantity int ,
 flag_deleted bit(1) ,
 price VARCHAR(20) ,
+size_id int, FOREIGN KEY(size_id) REFERENCES size(id),
 order_user_id int , FOREIGN KEY(order_user_id) REFERENCES order_user(id),
 product_id int ,FOREIGN KEY(product_id) REFERENCES product(id)
 );
@@ -64,6 +76,7 @@ create TABLE order_cart(
 id int PRIMARY KEY AUTO_INCREMENT ,
 quantity int ,
 flag_deleted bit(1) ,
+size_id int, FOREIGN KEY(size_id) REFERENCES size(id),
 user_information_id int , FOREIGN KEY(user_information_id) REFERENCES user_information(id),
 product_id int ,FOREIGN KEY(product_id) REFERENCES product(id)
 );
@@ -100,14 +113,16 @@ insert into user_information (id, address, birthday, flag_deleted, id_card, name
 insert into user_information (id, address, birthday, flag_deleted, id_card, name_user, phone_number, account_user_id) values (15, 'Suite 49', '2000-04-19', false, 2, 'Boyce Slayton', 3684805949, 2);
 
 -- type product 
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (1, 'Ring ');
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (2, 'Signet ring ');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (1, 'Ring');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (2, 'Signed ring');
 INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (3, 'Wedding ring');
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (4, 'Bangle ');
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (5, 'Bracelet ');
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (6, 'Strand of beads');
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (7, 'Drop earrings');
-INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (8, 'Watch ');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (4, 'Proposal ring');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (5, 'Bracelet');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (6, 'Signed bracelet');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (7, 'Necklace');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (8, 'Earrings');
+INSERT INTO jewelry_shop.type_product (id, name_type_product) VALUES (9, 'Bangles');
+
 -- supplier
 INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (1, 'Gemstone Jewelry Suppliers');
 INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (2, 'Precious Stone Jewelry Suppliers');
@@ -119,68 +134,68 @@ INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (7, 'Amethyst Jewel
 INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (8, 'Opal Jewelry Suppliers');
 INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (9, 'Tanzanite Jewelry Suppliers');
 INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (10, 'Citrine Jewelry Suppliers');
+-- category_product
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (1, 'Yellow');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (2, 'Silver');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (3, 'Titanium');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (4, 'Gemstone');
+
+-- size
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (1, 'SIZE 6', 1.2);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (2, 'SIZE 7', 1.4);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (3, 'SIZE 8', 1.5);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (4, 'SIZE 9', 1.6);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (5, 'SIZE 10', 1.7);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (6, 'SIZE 11', 1.8);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (7, 'SIZE 12', 1.9);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (8, 'SIZE 13', 2);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (9, 'SIZE 14', 2.1);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (10, 'SIZE 15', 2.2);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (11, 'SIZE 16', 2.3);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (12, 'SIZE 17', 2.4);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (13, 'SIZE 18', 2.5);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (14, 'SIZE 19', 2.6);
+INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (15, 'SIZE 20', 2.7);
+
 -- product
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (1, 'Darya Causey', 'Eleanore Shellibeer', 5821025, false, 1, 7);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (2, 'Carlyle Cartmel', 'Dorthea Dunkerly', 5705853, true, 7, 6);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (3, 'Tamqrah Loveard', 'Nola Rodrig', 7402110, true, 4, 5);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (4, 'Mile Day', 'Neils Wenman', 7657501, true, 6, 5);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (5, 'Susannah Barnett', 'Maison Gillyett', 5711999, true, 1, 6);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (6, 'Roselin Brundall', 'Cory Manifould', 5182518, true, 1, 2);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (7, 'Ardelis Thorpe', 'Arlette Simla', 5765004, true, 3, 2);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (8, 'Felix Belvin', 'Bradford Averay', 1842893, false, 9, 2);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (9, 'Katleen Freshwater', 'Farand Entissle', 1520114, true, 3, 3);
-insert into product (id, describe_product, name_product, price, flag_deleted, supplier_id, type_product_id) values (10, 'Cazzie Mc Queen', 'Tom Born', 7159135, false, 3, 8);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (1, 'Sythetic STYLE Silver Bracelet', 'Sythetic STYLE Silver Bracelet by PNJ Unisex ZTXMW000013 is a unisex jewelry (for both men and women) made from silver and designed with sythetic (artificial) stones to create a unique style and attract.', 30, 3000, false, 2, 9, 1);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (2, 'White gold wedding ring with 14K sapphire stone True Love SP00W000060', 'White gold wedding ring with 14K sapphire stone is a stunning piece of jewelry that combines the elegance of white gold with the vibrant beauty of a sapphire gemstone.', 20, 2000, false, 1, 3, 2);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (3, 'Pair of 14K White Gold Rings with Sapphire True Love 00060-00059', 'These rings are expertly crafted from high-quality 14K white gold, a precious metal that is renowned for its elegance and durability. The white gold band adds a touch of sophistication and timelessness to the overall design', 10, 2900, false, 1, 3, 1);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (4, 'Pair of 14K White Gold Diamond wedding rings 10580-04378', 'These wedding rings are crafted from high-quality 14K white gold, a precious metal known for its timeless elegance and durability. The white gold band adds a touch of sophistication and enhances the brilliance of the diamonds.', 20, 4000, false, 1, 3, 1);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (5, 'Men''s 14K Cinderella white diamond wedding ring DD00W004378', 'The Men''s 14K Cinderella white diamond wedding ring, is a remarkable and sophisticated piece of jewelry that embodies style, elegance, and everlasting love.', 20, 3000, false, 1, 3, 1);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (6, '18K Italian white gold wire 0000W000949', 'This white gold wire is crafted from high-quality 18K Italian white gold, a prestigious and sought-after material known for its exceptional purity and lustrous appearance. The 18K gold content ensures a luxurious and durable piece that will stand the test of time.', 30, 5000, false, 1, 7, 3);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (7, 'Unisex Silver Ring with Stone XM00W000069', 'This ring is crafted from high-quality silver, a precious metal known for its durability and timeless appeal. The silver band has a sleek and polished finish, adding a touch of elegance to the overall design.', 100, 1000, false, 2, 1, 4);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (8, 'Unisex Silver Ring 0000B060000', 'A versatile and stylish piece of jewelry, suitable for both men and women. This ring is crafted from premium silver, a precious metal known for its durability and timeless charm. The silver ring band has a smooth and glossy finish, adding a touch of elegance to the overall design.', 50, 500, false, 2, 1, 1);
+INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (9, '14K Gold Earrings with Freshwater Pearls PF00X000011', 'These earrings are crafted from high-quality 14K gold, a precious metal known for its durability and luxurious appeal. The gold setting adds a touch of warmth and richness to the overall design, enhancing the beauty of the freshwater pearls.', 20, 1000, false, 1, 8, 7);
 
 -- image
-insert into image (id, image_url, product_id) values (1, 'http://dummyimage.com/121x100.png/cc0000/ffffff', 9);
-insert into image (id, image_url, product_id) values (2, 'http://dummyimage.com/109x100.png/ff4444/ffffff', 10);
-insert into image (id, image_url, product_id) values (3, 'http://dummyimage.com/177x100.png/cc0000/ffffff', 8);
-insert into image (id, image_url, product_id) values (4, 'http://dummyimage.com/245x100.png/ff4444/ffffff', 1);
-insert into image (id, image_url, product_id) values (5, 'http://dummyimage.com/128x100.png/5fa2dd/ffffff', 4);
-insert into image (id, image_url, product_id) values (6, 'http://dummyimage.com/166x100.png/ff4444/ffffff', 9);
-insert into image (id, image_url, product_id) values (7, 'http://dummyimage.com/103x100.png/dddddd/000000', 2);
-insert into image (id, image_url, product_id) values (8, 'http://dummyimage.com/212x100.png/ff4444/ffffff', 1);
-insert into image (id, image_url, product_id) values (9, 'http://dummyimage.com/134x100.png/5fa2dd/ffffff', 8);
-insert into image (id, image_url, product_id) values (10, 'http://dummyimage.com/167x100.png/5fa2dd/ffffff', 9);
-insert into image (id, image_url, product_id) values (11, 'http://dummyimage.com/172x100.png/cc0000/ffffff', 7);
-insert into image (id, image_url, product_id) values (12, 'http://dummyimage.com/181x100.png/ff4444/ffffff', 3);
-insert into image (id, image_url, product_id) values (13, 'http://dummyimage.com/228x100.png/cc0000/ffffff', 5);
-insert into image (id, image_url, product_id) values (14, 'http://dummyimage.com/140x100.png/cc0000/ffffff', 6);
-insert into image (id, image_url, product_id) values (15, 'http://dummyimage.com/131x100.png/cc0000/ffffff', 6);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (1, 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg', 1);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (2, 'https://cdn.pnj.io/images/detailed/174/sp-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-1.png', 1);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (3, 'https://cdn.pnj.io/images/detailed/117/gnsp00w000060-nhan-cuoi-kim-cuong-vang-trang-14k-pnj-01.png', 2);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (4, 'https://cdn.pnj.io/images/detailed/127/gnsp00w000060-nhan-cuoi-vang-trang-14k-dinh-da-saphire-pnj-true-love-3.png', 2);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (5, 'https://cdn.pnj.io/images/thumbnails/300/300/detailed/183/sp-cap-nhan-cuoi-vang-trang-14k-dinh-da-saphire-pnj-true-love-00060-00059-1.png', 3);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (6, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/171/GNDDDDW010580-GNDD00W004378-1.png', 4);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (7, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/171/GNDDDDW010580-1.png', 4);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (8, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/158/gndd00w004378-nhan-nam-kim-cuong-vang-14k-diamond-4.jpg', 5);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (9, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/158/gndd00w004378-nhan-nam-kim-cuong-vang-14k-diamond-1.png', 5);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (10, 'https://cdn.pnj.io/images/detailed/38/gm_0000w000049-mat-day-chuyen-vang-trang-y-18k-pnj-01.png', 6);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (11, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/104/gm_0000w000049-mat-day-chuyen-vang-trang-y-18k-pnj-04.jpg', 6);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (12, 'https://cdn.pnj.io/images/detailed/174/sp-snxm00w000069-nhan-bac-dinh-da-cz-style-by-pnj-unisex-1.png', 7);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (13, 'https://cdn.pnj.io/images/detailed/174/sp-snxm00w000069-nhan-bac-dinh-da-cz-style-by-pnj-unisex-2.png', 7);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (14, 'https://cdn.pnj.io/images/detailed/168/sp-sn0000b060000-nhan-bac-style-by-pnj-1.png', 8);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (15, 'https://cdn.pnj.io/images/detailed/168/sp-sn0000b060000-nhan-bac-style-by-pnj-2.png', 8);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (16, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/188/sp-gbpf00x000011-bong-tai-vang-14k-dinh-ngoc-trai-freshwater-pnj-2.png', 9);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (17, 'https://cdn.pnj.io/images/detailed/188/on-gbpf00x000011-bong-tai-vang-14k-dinh-ngoc-trai-freshwater-pnj-2.jpg', 9);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (18, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/183/sp-cap-nhan-cuoi-vang-trang-14k-dinh-da-saphire-pnj-true-love-00060-00059-2.png', 3);
+INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (19, 'https://cdn.pnj.io/images/thumbnails/485/485/detailed/171/gndd00w004378-nhan-nam-kim-cuong-vang-14k-diamond-1.png', 4);
+
 -- order_cart
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (1, 5, false, 1, 10);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (2, 3, true, 2, 2);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (3, 2, true, 3, 1);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (4, 6, false, 4, 5);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (5, 5, false, 5, 10);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (6, 1, false, 6, 6);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (7, 5, true, 7,1);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (8, 1, false, 8, 2);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (9, 7, true, 9, 6);
-insert into order_cart (id, quantity, flag_deleted, product_id, user_information_id) values (10, 4, true, 10, 9);
+
+
 -- order_user
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (1, 6, false, 6, 1);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (2, 9, true, 3, 2);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (3, 7, true, 3, 3);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (4, 6, false, 8, 4);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (5, 1, true, 6, 5);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (6, 5, false, 10, 6);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (7, 8, true, 2, 7);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (8, 8, true, 1, 8);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (9, 3, true, 2, 9);
-insert into order_user (id, order_date, flag_deleted, note, user_information_id) values (10, 10, false, 1, 10);
+
 
 -- order_detail 
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (1, 10, false, 5, 1, 64367304);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (2, 6, false, 1, 2, 84983408);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (3, 9, false, 7, 3, 74481284);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (4, 6, false, 5, 4, 73283678);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (5, 1, false, 3, 5, 63204708);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (6, 10, false, 8, 6, 80009136);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (7, 6, false, 8, 7, 85697137);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (8, 7, false, 10, 8, 36594062);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (9, 7, false, 8, 9, 43487433);
-insert into order_detail (id, quantity, flag_deleted, product_id, order_user_id, price) values (10, 2, false, 3, 10, 23321494);
 
 
 
