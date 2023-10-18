@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JwtTokenUtil {
 
-    private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    private static final long JWT_TOKEN_VALIDITY = 1000 * 60 * 60;
     @Value("${jwt.secret}")
     private String secret;
 
@@ -28,8 +28,6 @@ public class JwtTokenUtil {
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
-
-
     public Claims extractClaims(String token) {
         byte[] secretBytes = Base64.getEncoder().encode(secret.getBytes());
         return Jwts.parser()

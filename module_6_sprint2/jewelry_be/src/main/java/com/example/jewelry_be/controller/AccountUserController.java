@@ -65,7 +65,7 @@ public class AccountUserController {
         UserInformation userInfor = userInformationService.getUserInfor(userDetails.getUsername());
         String jwtToken = jwtTokenUtil.generateToken(userDetails.getUsername());
         return ResponseEntity.ok()
-                .body(new JwtResponse(jwtToken, userInfor.getNameUser(),
+                .body(new JwtResponse(jwtToken, userInfor.getNameUser(),userInfor.getId(),
                         authority != null ? authority.getAuthority() : null));
     }
     @GetMapping("/logoutSuccessful")

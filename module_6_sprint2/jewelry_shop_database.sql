@@ -1,3 +1,4 @@
+
 create DATABASE jewelry_shop;
 use jewelry_shop;
 create TABLE role_user(
@@ -44,12 +45,19 @@ create TABLE product(
 id int PRIMARY KEY AUTO_INCREMENT,
 name_product VARCHAR(255) NOT NULL ,
 describe_product LONGTEXT,
+image_product LONGTEXT not null,
 quantity int not null,
 price DOUBLE NOT NULL ,
 flag_deleted bit(1),
 category_product_id int, FOREIGN KEY(category_product_id) REFERENCES category_product(id),
 type_product_id int , FOREIGN KEY(type_product_id) REFERENCES type_product(id),
 supplier_id int , FOREIGN KEY(supplier_id) REFERENCES supplier(id)
+);
+CREATE TABLE rating(
+id INT PRIMARY KEY AUTO_INCREMENT,
+star_number int not null,
+product_id int, FOREIGN KEY(product_id) REFERENCES product(id),
+user_information_id int, FOREIGN KEY(user_information_id) REFERENCES user_information(id)
 );
 create TABLE image(
 id int PRIMARY KEY AUTO_INCREMENT,
@@ -137,8 +145,10 @@ INSERT INTO jewelry_shop.supplier (id, name_supplier) VALUES (10, 'Citrine Jewel
 -- category_product
 INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (1, 'Yellow');
 INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (2, 'Silver');
-INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (3, 'Titanium');
-INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (4, 'Gemstone');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (3, 'Platinum ');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (4, 'High quality alloy');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (5, 'Diamond jewelry');
+INSERT INTO jewelry_shop.category_product (id, category_product_name) VALUES (6, 'Pearl jewelry');
 
 -- size
 INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (1, 'SIZE 6', 1.2);
@@ -158,15 +168,15 @@ INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (14, 'SIZE
 INSERT INTO jewelry_shop.size (id, size_name, conversion_rate) VALUES (15, 'SIZE 20', 2.7);
 
 -- product
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (1, 'Sythetic STYLE Silver Bracelet', 'Sythetic STYLE Silver Bracelet by PNJ Unisex ZTXMW000013 is a unisex jewelry (for both men and women) made from silver and designed with sythetic (artificial) stones to create a unique style and attract.', 30, 3000, false, 2, 9, 1);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (2, 'White gold wedding ring with 14K sapphire stone True Love SP00W000060', 'White gold wedding ring with 14K sapphire stone is a stunning piece of jewelry that combines the elegance of white gold with the vibrant beauty of a sapphire gemstone.', 20, 2000, false, 1, 3, 2);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (3, 'Pair of 14K White Gold Rings with Sapphire True Love 00060-00059', 'These rings are expertly crafted from high-quality 14K white gold, a precious metal that is renowned for its elegance and durability. The white gold band adds a touch of sophistication and timelessness to the overall design', 10, 2900, false, 1, 3, 1);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (4, 'Pair of 14K White Gold Diamond wedding rings 10580-04378', 'These wedding rings are crafted from high-quality 14K white gold, a precious metal known for its timeless elegance and durability. The white gold band adds a touch of sophistication and enhances the brilliance of the diamonds.', 20, 4000, false, 1, 3, 1);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (5, 'Men''s 14K Cinderella white diamond wedding ring DD00W004378', 'The Men''s 14K Cinderella white diamond wedding ring, is a remarkable and sophisticated piece of jewelry that embodies style, elegance, and everlasting love.', 20, 3000, false, 1, 3, 1);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (6, '18K Italian white gold wire 0000W000949', 'This white gold wire is crafted from high-quality 18K Italian white gold, a prestigious and sought-after material known for its exceptional purity and lustrous appearance. The 18K gold content ensures a luxurious and durable piece that will stand the test of time.', 30, 5000, false, 1, 7, 3);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (7, 'Unisex Silver Ring with Stone XM00W000069', 'This ring is crafted from high-quality silver, a precious metal known for its durability and timeless appeal. The silver band has a sleek and polished finish, adding a touch of elegance to the overall design.', 100, 1000, false, 2, 1, 4);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (8, 'Unisex Silver Ring 0000B060000', 'A versatile and stylish piece of jewelry, suitable for both men and women. This ring is crafted from premium silver, a precious metal known for its durability and timeless charm. The silver ring band has a smooth and glossy finish, adding a touch of elegance to the overall design.', 50, 500, false, 2, 1, 1);
-INSERT INTO jewelry_shop.product (id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES (9, '14K Gold Earrings with Freshwater Pearls PF00X000011', 'These earrings are crafted from high-quality 14K gold, a precious metal known for its durability and luxurious appeal. The gold setting adds a touch of warmth and richness to the overall design, enhancing the beauty of the freshwater pearls.', 20, 1000, false, 1, 8, 7);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',1, 'Sythetic STYLE Silver Bracelet', 'Sythetic STYLE Silver Bracelet by PNJ Unisex ZTXMW000013 is a unisex jewelry (for both men and women) made from silver and designed with sythetic (artificial) stones to create a unique style and attract.', 30, 3000, false, 2, 9, 1);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',2, 'White gold wedding ring with 14K sapphire stone True Love SP00W000060', 'White gold wedding ring with 14K sapphire stone is a stunning piece of jewelry that combines the elegance of white gold with the vibrant beauty of a sapphire gemstone.', 20, 2000, false, 1, 3, 2);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',3, 'Pair of 14K White Gold Rings with Sapphire True Love 00060-00059', 'These rings are expertly crafted from high-quality 14K white gold, a precious metal that is renowned for its elegance and durability. The white gold band adds a touch of sophistication and timelessness to the overall design', 10, 2900, false, 1, 3, 1);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',4, 'Pair of 14K White Gold Diamond wedding rings 10580-04378', 'These wedding rings are crafted from high-quality 14K white gold, a precious metal known for its timeless elegance and durability. The white gold band adds a touch of sophistication and enhances the brilliance of the diamonds.', 20, 4000, false, 1, 3, 1);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',5, 'Men''s 14K Cinderella white diamond wedding ring DD00W004378', 'The Men''s 14K Cinderella white diamond wedding ring, is a remarkable and sophisticated piece of jewelry that embodies style, elegance, and everlasting love.', 20, 3000, false, 1, 3, 1);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',6, '18K Italian white gold wire 0000W000949', 'This white gold wire is crafted from high-quality 18K Italian white gold, a prestigious and sought-after material known for its exceptional purity and lustrous appearance. The 18K gold content ensures a luxurious and durable piece that will stand the test of time.', 30, 5000, false, 1, 7, 3);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',7, 'Unisex Silver Ring with Stone XM00W000069', 'This ring is crafted from high-quality silver, a precious metal known for its durability and timeless appeal. The silver band has a sleek and polished finish, adding a touch of elegance to the overall design.', 100, 1000, false, 2, 1, 4);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',8, 'Unisex Silver Ring 0000B060000', 'A versatile and stylish piece of jewelry, suitable for both men and women. This ring is crafted from premium silver, a precious metal known for its durability and timeless charm. The silver ring band has a smooth and glossy finish, adding a touch of elegance to the overall design.', 50, 500, false, 2, 1, 1);
+INSERT INTO jewelry_shop.product (image_product, id, name_product, describe_product, quantity, price, flag_deleted, category_product_id, type_product_id, supplier_id) VALUES ( 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg',9, '14K Gold Earrings with Freshwater Pearls PF00X000011', 'These earrings are crafted from high-quality 14K gold, a precious metal known for its durability and luxurious appeal. The gold setting adds a touch of warmth and richness to the overall design, enhancing the beauty of the freshwater pearls.', 20, 1000, false, 1, 8, 7);
 
 -- image
 INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (1, 'https://cdn.pnj.io/images/detailed/174/on-slztmxw000003-lac-tay-bac-dinh-da-synthetic-style-by-pnj-feminine-4.jpg', 1);
@@ -199,6 +209,32 @@ INSERT INTO jewelry_shop.image (id, image_url, product_id) VALUES (19, 'https://
 
 
 
-
-
-
+DELIMITER //
+CREATE PROCEDURE createOrder(IN user_id INT, IN note VARCHAR(1000), IN cart_ids TEXT, OUT return_order_id INT)
+BEGIN
+	-- create a new order
+    INSERT INTO orders (order_date, flag_deleted, user_information_id,note)
+    VALUES (NOW(), 0,user_id, note);
+    
+    -- get the ID of the new added order
+    SET @order_id = LAST_INSERT_ID();
+    
+	-- Create new order details for each item in the cart
+    INSERT INTO order_detail (order_user_id, product_id, quantity, price, size)
+    SELECT @order_id, p.id, oc.quantity, p.price, s.id 
+    FROM order_cart oc 
+    INNER JOIN product p ON p.id = oc.product_id
+    INNER JOIN size s on s.id = oc.size_id 
+    WHERE oc.user_information_id = user_id AND FIND_IN_SET(oc.id,cart_ids);
+    
+    --  update the quantity in the product table
+    UPDATE product AS p
+    INNER JOIN order_cart AS oc ON oc.product_id = p.id AND FIND_IN_SET(oc.id,cart_ids)
+    SET p.quantity = p.quantity - oc.quantity
+    WHERE oc.user_information_id = user_id;
+	-- delete the items from the cart
+	DELETE FROM order_cart WHERE user_information_id = user_id AND FIND_IN_SET(id,cart_ids);
+    -- set the OUT parameter to the order ID
+	SET return_order_id = @order_id;
+END //
+DELIMITER ;

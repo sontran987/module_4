@@ -19,6 +19,7 @@ export default function SignIn() {
             const result = await login(value);
             localStorage.setItem("jwt", result.token)
             localStorage.setItem("nameUser", result.nameUser)
+            localStorage.setItem("id", result.id)
             localStorage.setItem("role", result.role)
             const tempURL = localStorage.getItem("tempURL");
             localStorage.removeItem("tempURL");
@@ -131,7 +132,7 @@ export default function SignIn() {
                             <h2>Sign In</h2>
                             <div className="form">
                                 <div className="inputBox">
-                                    <Field className="input" type="text" name="userName" required/> <i>Username</i>
+                                    <Field className="input" type="text" name="userName" required/> <i>Email</i>
                                 </div>
                                 <div className="inputBox">
                                     <Field className="input" type="password" name="userPassword" required/> <i>Password</i>

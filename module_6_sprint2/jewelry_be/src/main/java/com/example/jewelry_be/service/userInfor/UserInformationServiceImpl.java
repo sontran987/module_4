@@ -14,4 +14,14 @@ public class UserInformationServiceImpl implements IUserInformationService {
     public UserInformation getUserInfor(String userName) {
         return userInformationRepository.getUserByAccountUser(userName);
     }
+
+    @Override
+    public UserInformation getUserInformationById(Integer id) {
+        return userInformationRepository.getUserById(id);
+    }
+
+    @Override
+    public boolean existsById(Integer id) {
+        return userInformationRepository.existsById(id);
+    }
 }

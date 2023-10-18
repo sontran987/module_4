@@ -11,9 +11,10 @@
     color: black;
     font-weight: bold;
     border: 1px solid whitesmoke !important;
-    width: 38px !important;
+    width: 30px !important;
     padding: 5px 5px !important;
     border-radius: 5px !important;
+    margin: 2px;
     cursor: pointer;
 }
 
@@ -74,9 +75,13 @@
 
 .title-detail-product {
     color: #90bc79;
-    padding-left: 3px;
 }
 
 .btn-outline-primary:hover {
     color: white !important;
+}
+
+.custom-select {
+    background-color: #90bc79;
+    border: 1px white;
 }

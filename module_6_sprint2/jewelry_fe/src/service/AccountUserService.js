@@ -11,14 +11,12 @@ export async function logOut(){
     return res;
 }
 export const axiosClient = () => {
-
     axios.interceptors.request.use(async (config) => {
         const accessToken = localStorage.getItem("jwt");
-
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
         }
-        console.log("truoc khi xuong server")
+        // console.log("truoc khi xuong server")
         return config;
     })
 

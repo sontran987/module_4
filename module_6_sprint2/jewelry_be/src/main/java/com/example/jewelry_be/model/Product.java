@@ -12,7 +12,7 @@ public class Product {
     private String nameProduct;
     @Column(columnDefinition = "LONGTEXT")
     private String describeProduct;
-    private Integer quantity;
+        private Integer quantity;
     @Column(columnDefinition = "LONGTEXT")
     private String imageProduct;
     private String price;

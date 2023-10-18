@@ -6,12 +6,20 @@ import Cart from "../img/cart.png"
 import {NavLink, useNavigate} from "react-router-dom";
 // import {logOut} from "../service/AccountUserService";
 import {useEffect, useState} from "react";
+import Swal from "sweetalert2";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllCart, getProduct} from "../redux/cartAction";
 
 export default function Header() {
     const navigate = useNavigate();
     const [use, setUse] = useState(null);
+    const cart = useSelector(state => state.cart);
+    const product = useSelector(state => state.product);
+    const dispatch = useDispatch();
     const loginUser = async () => {
+        const userId = localStorage.getItem("id");
         const nameUser = localStorage.getItem("nameUser");
+        dispatch(getAllCart(userId));
         if (nameUser !== null) {
             setUse(nameUser);
         }
@@ -22,6 +30,16 @@ export default function Header() {
         localStorage.setItem("role", null);
         setUse(null);
         navigate("/");
+        Swal.fire({
+            icon: 'info',
+            title: 'dang xuat thanh cong.',
+            showConfirmButton: false,
+            timer: 2000
+        })
+        window.location.reload();
+    }
+    const check = ()=>{
+        dispatch(getProduct(1));
     }
     useEffect(() => {
         loginUser()
@@ -40,8 +58,8 @@ export default function Header() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarCollapse">
                             <div className="navbar-nav ms-auto justify-content-center d-flex">
-                                <a href="#" className="nav-item nav-link">Home</a>
-                                <a href="#" className="nav-item nav-link">About</a>
+                                <NavLink to={"/"} className="nav-item nav-link">Home</NavLink>
+                                <a href="#" className="nav-item nav-link" onClick={check}>About</a>
                                 <a href="#" className="nav-item nav-link">Products</a>
                                 <a href="#" className="nav-item nav-link">Contact</a>
                                 {
@@ -54,9 +72,9 @@ export default function Header() {
                                                     data-bs-toggle="dropdown"
                                                     aria-expanded="false">{use}</button>
                                             <ul className="dropdown-menu menu-infor">
-                                                <button
+                                                <NavLink to={"/information"}
                                                     className="dropdown-item text-user-name text-center mt-2">Information
-                                                </button>
+                                                </NavLink>
                                                 <button className="dropdown-item text-user-name text-center mt-2"
                                                         onClick={() => {
                                                             logoutForm();
@@ -72,7 +90,7 @@ export default function Header() {
                                 style={{opacity: "0.8"}}
                                 height={30} width={30} src={Cart}
                                 alt="thanh"/>
-                                <span className="cart-number">0</span></NavLink>
+                                <span className="cart-number">{cart.length}</span></NavLink>
                         </div>
                     </nav>
                 </div>

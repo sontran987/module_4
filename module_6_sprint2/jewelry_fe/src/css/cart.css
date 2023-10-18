@@ -4,7 +4,6 @@ body {
     vertical-align: middle;
     font-family: sans-serif;
     font-size: 0.8rem;
-    font-weight: bold;
 }
 
 .title {
@@ -117,21 +116,6 @@ a {
 h5 {
     margin-top: 4vh;
 }
-
-hr {
-    margin-top: 1.25rem;
-}
-
-
-/*select {*/
-/*    border: 1px solid rgba(0, 0, 0, 0.137);*/
-/*    padding: 1.5vh 1vh;*/
-/*    margin-bottom: 4vh;*/
-/*    outline: none;*/
-/*    width: 100%;*/
-/*    background-color: rgb(247, 247, 247);*/
-/*}*/
-
 .input {
     border: 1px solid rgba(0, 0, 0, 0.137);
     margin-bottom: 3vh;
@@ -148,21 +132,20 @@ input:focus::-webkit-input-placeholder {
     width: 100%;
     font-size: 1rem;
     border: 1px #ffffff;
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
 }
 .pay{
+    margin-top: 20px;
     background-color: #90bc79!important;
+    border-radius: 5px;
 }
 .btn-cart:focus {
     box-shadow: none;
     outline: none;
-    box-shadow: none;
     -webkit-box-shadow: none;
     -webkit-user-select: none;
     transition: none;
 }
-
-
 a {
     color: black;
 }
@@ -170,4 +153,28 @@ a {
 a:hover {
     color: black;
     text-decoration: none;
+}
+.btn-input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.btn-minus,
+.btn-plus {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+    border: 1px solid whitesmoke !important;
+    width: 30px !important;
+    padding: 2px 2px !important;
+    border-radius: 5px !important;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.btn-minus:hover,
+.btn-plus:hover {
+    background-color: #90bc79;
 }

@@ -50,8 +50,16 @@ img.animated.pulse {
     animation-duration: 5s;
 }
 
-.imgs {
-    object-fit: scale-down;
+.scroll-to-top-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    padding: 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .text-user-name {
@@ -291,6 +299,7 @@ img.animated.pulse {
     padding-right: 4px;
     height: 42px;
     min-width: 5rem;
+    text-align: center;
 }
 
 .btn-search {
@@ -303,6 +312,14 @@ img.animated.pulse {
 .product-item {
     border-radius: 10px;
     transition: .1s;
+    position: relative;
+}
+.rating{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .product-item:hover {
