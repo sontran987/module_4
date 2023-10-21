@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/account/logoutSuccessful",
                         "/api/product/**")
                 .permitAll()
-                .antMatchers("/api/order/**")
+                .antMatchers("/api/order/**","/api/rating/**")
                 .hasAnyAuthority("ROLE_Admin", "ROLE_User")
                 .anyRequest().authenticated()
                 .and()

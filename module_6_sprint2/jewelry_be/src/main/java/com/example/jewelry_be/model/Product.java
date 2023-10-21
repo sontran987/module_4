@@ -15,7 +15,7 @@ public class Product {
         private Integer quantity;
     @Column(columnDefinition = "LONGTEXT")
     private String imageProduct;
-    private String price;
+    private Double price;
     private Boolean flagDeleted;
 
     @ManyToOne
@@ -28,7 +28,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Integer id, String nameProduct, String describeProduct, Integer quantity, String imageProduct, String price, Boolean flagDeleted, CategoryProduct categoryProduct, TypeProduct typeProduct, Supplier supplier) {
+    public Product(Integer id, String nameProduct, String describeProduct, Integer quantity, String imageProduct, Double price, Boolean flagDeleted, CategoryProduct categoryProduct, TypeProduct typeProduct, Supplier supplier) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.describeProduct = describeProduct;
@@ -81,11 +81,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

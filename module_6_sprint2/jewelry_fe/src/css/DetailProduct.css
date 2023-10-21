@@ -85,3 +85,33 @@
     background-color: #90bc79;
     border: 1px white;
 }
+
+.thanh-son-danh-gia {
+
+}
+
+.thanh-son-comment {
+    overflow-y: hidden;
+    height: 100px;
+    border-radius: 15px;
+    padding-right: 40px;
+}
+
+.thanh-son-comment-button {
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 15px;
+    justify-content: center;
+    display: flex;
+}
+.comment-before{
+    word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+}
+.text-length-body{
+    font-weight: initial;
+    font-size: 20px;
+    padding-left: 4px;
+}

@@ -1,9 +1,14 @@
 import "../css/cart.css"
 import {Link, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {deleteOrderById, getAllCartOrder, getUserInformation, updateQuantityProduct} from "../service/CartService";
+import {
+    checkQuantityProduct,
+    deleteOrderById,
+    getAllCartOrder,
+    getUserInformation,
+    updateQuantityProduct
+} from "../service/CartService";
 import Swal from "sweetalert2";
-import {useDispatch} from "react-redux";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {createNewOrder} from "../service/PurchaseService";
@@ -15,8 +20,6 @@ export default function Cart() {
     const [totalPrice, setTotalPrice] = useState(0);
     const [useInformation, setUserInformation] = useState();
     const [checkOut, setCheckOut] = useState(false);
-    const [note, setNote] = useState("");
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleMinus = async (event) => {
         if (event.quantity > 1) {
@@ -42,11 +45,13 @@ export default function Cart() {
         })
 
     }
-    const checkRenderPaypal = (value) => {
+    const checkRenderPaypal = async (value) => {
         if (!checkOut) {
             setCheckOut(true);
             renderPaypal(value);
         }
+
+
     }
 
     const renderPaypal = (value) => {
@@ -57,7 +62,6 @@ export default function Cart() {
             .Buttons({
                 createOrder: (data, action, error) => {
                     const total = parseFloat(totalPrice);
-                    console.log(total);
                     return action.order.create({
                         intent: "CAPTURE",
                         purchase_units: [{
@@ -71,34 +75,46 @@ export default function Cart() {
                 },
                 onApprove: async (data, actions) => {
                     const total = parseFloat(totalPrice);
-                    const order = await actions.order.capture();
-                    console.log(JSON.stringify(order));
-                    // after we're done with paypal
-                    let deletedCartIDs = [];
-                    const userId = localStorage.getItem("id");
-                    {carts.forEach((cart)=>{ deletedCartIDs.push(cart.id)})}
-                    console.log(deletedCartIDs);
-                    const res = await createNewOrder(
-                        userId,
-                        value.note,
-                        deletedCartIDs
-                    );
-                    navigate("/success", {
-                        state: {
-                            purchaseDetails: res.data,
-                            totalPrice: total,
-                        },
-                    });
+                    try {
+                        const idUser = localStorage.getItem("id");
+                        const data = await checkQuantityProduct(idUser);
+                        const order = await actions.order.capture();
+
+                        // after we're done with paypal
+                        let deletedCartIDs = [];
+                        const userId = localStorage.getItem("id");
+                        {
+                            carts.forEach((cart) => {
+                                deletedCartIDs.push(cart.id)
+                            })
+                        }
+                        // console.log(deletedCartIDs);
+                        const res = await createNewOrder(
+                            userId,
+                            value.note,
+                            deletedCartIDs
+                        );
+                        navigate("/success", {
+                            state: {
+                                purchaseDetails: res.data,
+                                totalPrice: total,
+                            },
+                        });
+                    } catch (error) {
+                        await Swal.fire(`${error.response.data}`, "", "error");
+
+                    }
+
                 },
                 onError: (err) => {
-                    console.log(err);
+                    // console.log(err);
                     Swal.fire("Payment failed! Please try again!", "", "error").then();
                 }
             })
             .render("#paypal-button-container");
     };
     const getAllCart = async () => {
-        setCarts([]);
+        // setCarts([]);
         const idUser = localStorage.getItem("id");
         const dataCart = await getAllCartOrder(idUser);
         const dataUserInformation = await getUserInformation(idUser);
@@ -145,17 +161,13 @@ export default function Cart() {
                                                     handleMinus(cart);
                                                 }}
                                             />
-                                            <input readOnly step={1} maxLength="2"
-                                                   min="1" max="99"
-                                                   defaultValue={cart.quantity}
-                                                   style={{
-                                                       width: "30px",
-                                                       height: "20px",
-                                                       border: "1px white",
-                                                       borderRadius: "5px",
-                                                       textAlign: "center "
-                                                   }} name="quantity" className="text-center"
-                                            />
+                                            <div style={{
+                                                           width: "30px",
+                                                           height: "20px",
+                                                           border: "1px white",
+                                                           borderRadius: "5px",
+                                                           textAlign: "center "
+                                                       }}>{cart.quantity}</div>
                                             <input
                                                 type="button"
                                                 defaultValue="+"
@@ -193,14 +205,14 @@ export default function Cart() {
                         <div><h5><b>Invoice information</b></h5></div>
                         <hr/>
                         <div className="row">
-                            <div className="col">EXPECTED </div>
+                            <div className="col">EXPECTED</div>
                             <div className="col text-end">${totalPrice} </div>
                         </div>
                         <Formik
                             initialValues={{
                                 nameUser: useInformation.nameUser,
                                 address: useInformation.address,
-                                phoneNumber: 0+useInformation.phoneNumber,
+                                phoneNumber: 0 + useInformation.phoneNumber,
                                 birthday: useInformation.birthday,
                                 note: ""
                             }}
@@ -211,7 +223,7 @@ export default function Cart() {
                                         /^[\p{L}\s]+$/u,
                                         "The name must contain only letters and spaces"),
                                 address: Yup.string().required("Please enter address")
-                                    .max(100,"Please enter less than 100 characters")
+                                    .max(100, "Please enter less than 100 characters")
                                     .matches(/^[\p{L}\p{N}\s]+$/u, "Address contains only numbers, letters and '/'"),
                                 phoneNumber: Yup.string().required("Please enter phone number")
                                     .min(10, "Please enter only 10 to 11 numbers")
@@ -258,7 +270,7 @@ export default function Cart() {
                                     <div className="col">TOTAL PRICE</div>
                                     <div className="col text-end ">${totalPrice}</div>
                                 </div>
-                                <button type={"submit"} className="btn-cart pay" >PROCEED PAYMENT</button>
+                                <button type={"submit"} className="btn-cart pay">PROCEED PAYMENT</button>
                             </Form>
                         </Formik>
                         <div id="paypal-button-container" className="w-100 mt-3"></div>

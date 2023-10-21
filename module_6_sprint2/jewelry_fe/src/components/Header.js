@@ -58,10 +58,10 @@ export default function Header() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarCollapse">
                             <div className="navbar-nav ms-auto justify-content-center d-flex">
-                                <NavLink to={"/"} className="nav-item nav-link">Home</NavLink>
-                                <a href="#" className="nav-item nav-link" onClick={check}>About</a>
-                                <a href="#" className="nav-item nav-link">Products</a>
-                                <a href="#" className="nav-item nav-link">Contact</a>
+                                <NavLink to={"/"} className="nav-item nav-link text-end">Home</NavLink>
+                                <a href="#" className="nav-item nav-link text-end" onClick={check}>About</a>
+                                <a href="#" className="nav-item nav-link text-end">Products</a>
+                                <a href="#" className="nav-item nav-link text-end">Contact</a>
                                 {
                                     !use?
                                         (<div className="btn-group ">
@@ -74,6 +74,9 @@ export default function Header() {
                                             <ul className="dropdown-menu menu-infor">
                                                 <NavLink to={"/information"}
                                                     className="dropdown-item text-user-name text-center mt-2">Information
+                                                </NavLink>
+                                                <NavLink to={"/history"}
+                                                         className="dropdown-item text-user-name text-center mt-2">Purchase history
                                                 </NavLink>
                                                 <button className="dropdown-item text-user-name text-center mt-2"
                                                         onClick={() => {

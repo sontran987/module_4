@@ -16,6 +16,7 @@ export async function getAllProduct(page, limit, sort, arrangement, trademark, m
             typeProduct:typeProduct
         }
     });
+    console.log(res.data);
     return res.data;
 }
 export async function getAllCategory(){

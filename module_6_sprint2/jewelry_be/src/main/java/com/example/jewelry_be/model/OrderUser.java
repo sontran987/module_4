@@ -1,13 +1,15 @@
 package com.example.jewelry_be.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class OrderUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String orderDate;
+    private Date orderDate;
     private String note;
     private Boolean flagDeleted;
     @ManyToOne
@@ -16,7 +18,7 @@ public class OrderUser {
     public OrderUser() {
     }
 
-    public OrderUser(Integer id, String orderDate, String note, Boolean flagDeleted, UserInformation userInformation) {
+    public OrderUser(Integer id, Date orderDate, String note, Boolean flagDeleted, UserInformation userInformation) {
         this.id = id;
         this.orderDate = orderDate;
         this.note = note;
@@ -32,11 +34,11 @@ public class OrderUser {
         this.id = id;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 

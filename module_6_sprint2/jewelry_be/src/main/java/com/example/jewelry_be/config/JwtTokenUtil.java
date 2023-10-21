@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JwtTokenUtil {
 
-    private static final long JWT_TOKEN_VALIDITY = 1000 * 60 * 60;
+    private static final long JWT_TOKEN_VALIDITY = 5000 * 24 * 60 * 60;
     @Value("${jwt.secret}")
     private String secret;
 

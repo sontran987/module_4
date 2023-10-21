@@ -11,6 +11,7 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAllCategory, getAllProduct, getAllSupplier, getAllTypeProduct} from "../service/HomeService";
 import Swal from "sweetalert2";
+import StarRatings from "react-star-ratings/build/star-ratings";
 
 export default function Home() {
     const limit = 4;
@@ -105,6 +106,7 @@ export default function Home() {
                 searchProduct.trademark, searchProduct.material,
                 searchProduct.typeProduct);
             setProduct([...products, ...data.content]);
+            console.log(data)
             // setPageList(data.pageable.pageNumber);
             setTotalPage(data.totalPages);
             setIsLoading(false);
@@ -206,6 +208,8 @@ export default function Home() {
         setProduct([]);
     }
 
+
+
     return (
         <>
             <button className={`scroll-to-top-button ${showButton ? 'show' : 'd-none'}`} onClick={scrollToTop}><img
@@ -248,7 +252,7 @@ export default function Home() {
                         {/* search */}
                         <div className="px-2 justify-content-between d-flex">
                             <div>
-                                <p className="px-2 m-0"> Bộ lọc:</p>
+                                <p className="px-2 m-0"> Filter:</p>
                                 <select className="search-product" onChange={handleSearchSupplier}>
                                     <option value={0}>Choose supplier</option>
                                     {suppliers.map((supplier, index) => (
@@ -270,7 +274,7 @@ export default function Home() {
                                 </select>
                             </div>
                             <div>
-                                <p className="px-2 m-0"> Sắp xếp:</p>
+                                <p className="px-2 m-0"> Sorts:</p>
                                 <select className="search-product" aria-label=".form-select-lg example"
                                         onChange={handleSort}>
                                     <option className="mt-2"
@@ -291,17 +295,21 @@ export default function Home() {
                             {products.map((product, index) => (
                                 <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s" key={index}>
                                     <div className="product-item text-center border h-100 p-2">
-                                        <Link to={"/detail/" + product.id}>
+                                        <Link to={"/detail/" + product.idProduct}>
                                             <img className=" img-cards" src={product.imageProduct}
                                                  alt={product.nameProduct}/>
                                             <p className="h6 d-inline-block mb-2 mt-3">{product.nameProduct}</p>
                                             <h5 className="text-primary mb-3">${Number.parseInt(product.price)}</h5>
+                                            <div className="float-start ">{product.quantity}</div>
                                             <div className="float-end rating">
-                                                <i className="fa fa-star checked text-warning" />
-                                                <i className="fa fa-star checked text-warning" />
-                                                <i className="fa fa-star  text-warning" />
-                                                <i className="fa fa-star  " />
-                                                <i className="fa fa-star  " />
+                                                <StarRatings
+                                                    rating={product.starNumber ? product.starNumber : 0}
+                                                    starRatedColor="#f4ab20"
+                                                    starDimension="20px"
+                                                    starSpacing="2px"
+                                                    numberOfStars={5}
+                                                    name='rating'
+                                                />
                                             </div>
                                         </Link>
                                         {/*<button className="btn btn-outline-primary px-3 ">Add To Cart</button>*/}

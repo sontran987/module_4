@@ -2,6 +2,7 @@ package com.example.jewelry_be.controller;
 
 import com.example.jewelry_be.model.*;
 import com.example.jewelry_be.projection.DetailProductProjection;
+import com.example.jewelry_be.projection.ListProductProjection;
 import com.example.jewelry_be.service.product.IProductService;
 import com.example.jewelry_be.service.search.ISearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ProductController {
     private ISearchService searchService;
 
     @GetMapping("/get-all")
-    public ResponseEntity<Page<Product>> getAllProduct(
+    public ResponseEntity<Page<ListProductProjection>> getAllProduct(
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "limit", required = false) Integer limit,
             @RequestParam(value = "sort", required = false) String sort,
@@ -36,7 +37,7 @@ public class ProductController {
             @RequestParam(value = "material", required = false) Integer material,
             @RequestParam(value = "typeProduct", required = false) Integer typeProduct) {
         Pageable pageable;
-        Page<Product> list;
+        Page<ListProductProjection> list;
         if (trademark == null) {
             trademark = 0;
         }

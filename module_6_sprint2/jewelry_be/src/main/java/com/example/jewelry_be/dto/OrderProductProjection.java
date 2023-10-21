@@ -1,10 +1,10 @@
-package com.example.jewelry_be.projection;
+package com.example.jewelry_be.dto;
 
 public class OrderProductProjection {
-   public Integer quantity;
-   public Integer sizeId;
-   public Integer userInformation;
-   public Integer productId;
+    public Integer quantity;
+    public Integer sizeId;
+    public Integer userInformation ;
+    public Integer productId;
 
     public OrderProductProjection() {
     }

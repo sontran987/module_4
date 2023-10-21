@@ -3,50 +3,108 @@ import Header from "./Header";
 import {useParams} from "react-router-dom";
 import Footer from "./Footer";
 import {useEffect, useState} from "react";
-import {addToCart, findDetailProduct, getSize} from "../service/DetailProductService";
+import {
+    addRating,
+    addToCart,
+    checkUserPurchase,
+    findDetailProduct,
+    getRating,
+    getSize
+} from "../service/DetailProductService";
 import Swal from "sweetalert2";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {useDispatch} from "react-redux";
 import {getAllCart} from "../redux/cartAction";
+import ReactStars from "react-rating-stars-component";
+import {format} from 'date-fns';
+import StarRatings from "react-star-ratings/build/star-ratings";
 
 export default function DetailProduct() {
     const param = useParams();
     const [detailProduct, setDetailProduct] = useState([]);
     const [sizes, setSizes] = useState([]);
     const [images, setImages] = useState([]);
+    const [comments, setComment] = useState([]);
     const [quantity, setQuantity] = useState(1);
     const [checkSize, setCheckSize] = useState(0);
     const [checkPriceBySize, setCheckPriceSize] = useState(1);
+    const [inputValue, setInputValue] = useState('');
+    const [iputStar, setInputStar] = useState(0);
+    const [beCommented, setBeCommented] = useState(false);
+    const [showEvaluate, setShowEvaluate] = useState(false);
     const [cart, setCart] = useState({
         quantity: 0,
         sizeId: 0,
         userInformation: 0,
         productId: 0
     });
+    const handleCreateRating = async () => {
+        const currentDate = format(new Date(), 'dd/MM/yyyy');
+        const userId = localStorage.getItem("id");
+        if (iputStar === 0 || inputValue === "") {
+            await Swal.fire("Please rate and comment on the product", "", "warning")
+        } else {
+            const rating = {
+                starNumber: iputStar,
+                comments: inputValue,
+                dateComment: currentDate,
+                product: detailProduct.productId,
+                userInformation: userId
+            }
+            try {
+                await addRating(rating);
+                setInputStar(0);
+                setInputValue('');
+                setBeCommented(!beCommented);
+            } catch (error) {
+                await Swal.fire("Failed assessment", "", "warning");
+            }
+        }
+
+    }
+    const ratingChanged = (newRating) => {
+        setInputStar(newRating);
+    }
     const dispatch = useDispatch();
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    const adjustTextareaHeight = (element) => {
+        element.style.height = 'auto';
+        element.style.height = `${element.scrollHeight}px`;
+    };
+
+    const handleTextareaResize = (event) => {
+        adjustTextareaHeight(event.target);
+    };
     const addProductToCart = async () => {
         try {
-            const userId = localStorage.getItem("id");
-            await addToCart(cart);
-            dispatch(getAllCart(userId));
-            toast.success("Thêm sản phẩm thành công");
+            if (cart.quantity <= detailProduct.quantity) {
+                const userId = localStorage.getItem("id");
+                await addToCart(cart);
+                dispatch(getAllCart(userId));
+                toast.success("Added product successfully");
+            } else {
+                Swal.fire("Exceeds the available quantity", "", "error")
+            }
+
         } catch (error) {
 
         }
     }
     const handleSize = (event) => {
         if (event.target.value !== 0 && event.target.value !== checkSize) {
-            console.log(event.target.value)
+            // console.log(event.target.value)
             setCart(prevState => ({
                 ...prevState,
                 sizeId: event.target.value,
                 userInformation: localStorage.getItem("id")
             }))
             setCheckSize((prevState) => event.target.value);
-            sizes.map((size,index)=>{
-                if (size.id == event.target.value ){
-                    console.log(size.conversionRate);
+            sizes.map((size, index) => {
+                if (size.id === event.target.value) {
                     setCheckPriceSize(size.conversionRate);
                 }
             })
@@ -71,24 +129,35 @@ export default function DetailProduct() {
         }
 
     }
+
     const getAllDetail = async () => {
         const data = await findDetailProduct(param.id);
+        const data1 = await getSize();
+        const data3 = await getRating(data.productId);
+        const temp = data.image.split(",");
+
+        const data2 = await checkUserPurchase(localStorage.getItem("id"), data.productId);
+        if (data2.status === 204) {
+            setShowEvaluate(false);
+        } else {
+            setShowEvaluate(true);
+        }
+
         setDetailProduct(data);
+        setComment(data3);
         setCart(prevState => ({
             ...prevState,
             productId: data.productId,
             quantity: quantity
         }))
-        const temp = data.image.split(",");
         setImages(temp);
-        const data1 = await getSize();
         setSizes(data1);
     };
-
     useEffect(() => {
         document.title = 'Jewelry - Detail product'
+        window.scrollTo(0, 0);
         getAllDetail().then();
-    }, []);
+    }, [beCommented]);
 
     return (
         <>
@@ -158,7 +227,7 @@ export default function DetailProduct() {
                                 <div className=" col col-md-6 col-auto">
                                     <h2 className="name">{detailProduct.productName}</h2>
                                     <h4>
-                                        <span>${Number.parseInt(detailProduct.price * checkPriceBySize * quantity)}</span>
+                                        <span>${Number.parseInt(detailProduct.price * checkPriceBySize)}</span>
                                     </h4>
                                     <div style={{backgroundColor: "#90bc79", borderRadius: 10}} className="p-2">
                                         <p>Describe: <span>{detailProduct.productDescribe}</span>
@@ -239,10 +308,82 @@ export default function DetailProduct() {
                                     </div>
                                 </div>
                             }
-
-
                         </div>
                     </div>
+                </div>
+            </div>
+            {showEvaluate ? (
+                <div className="row">
+                    <div className="col-8">
+                        <h3>Comment</h3>
+                        <div className="mt-5">
+                         <textarea className="form-control thanh-son-comment "
+                                   value={inputValue}
+                                   maxLength={1000}
+                                   placeholder="Write a comment . . ."
+                                   onChange={handleInputChange}
+                                   onInput={handleTextareaResize}
+                         />
+                        </div>
+                    </div>
+                    <div className="col-4 thanh-son-danh-gia">
+                        <h3>Evaluate</h3>
+                        <div className="row align-items-center mt-4">
+                            <div className="col-auto">
+                                <h5 className="mt-2">Your rating:</h5>
+                            </div>
+                            <div className="col-auto">
+                                <ReactStars
+                                    count={5}
+                                    onChange={ratingChanged}
+                                    value={iputStar}
+                                    size={50}
+                                    activeColor="#f4ab20"
+                                />
+                            </div>
+                        </div>
+                        <button onClick={() => {
+                            handleCreateRating().then();
+                        }}
+                                className="btn btn-outline-primary thanh-son-comment-button">
+                            <i className="fa-solid fa-arrow-right mt-1"></i>
+                        </button>
+                    </div>
+                </div>
+            ) : ""}
+
+            <div className="row mt-4">
+                <div className="col-8">
+                    <h3 className="mb-4 ps-3">Comment<span
+                        className="text-length-body">{comments.length !== 0 ? `(` + comments.length + `)` : ""}</span>
+                    </h3>
+                    {comments.length !== 0 ? comments.map((comment, index) => (
+                        <div className="row" key={index}>
+                            <div className="justify-content-between d-flex">
+                                <div>
+                                    <h6 className="d-inline">{comment.userInformation.nameUser}</h6>
+                                    <span className="ms-2">{comment.dateComment}</span>
+                                </div>
+                                <StarRatings
+                                    rating={comment.starNumber ? comment.starNumber : 0}
+                                    starRatedColor="#f4ab20"
+                                    starDimension="20px"
+                                    starSpacing="2px"
+                                    numberOfStars={5}
+                                    name='rating'
+                                />
+                            </div>
+                            <div className="comment-before">
+                                <p className="text-capitalize">{comment.comments}</p>
+                            </div>
+                            <hr/>
+                        </div>
+
+                    )) : <div><h4 className="text-capitalize text-center text-danger">No comment</h4></div>}
+
+                </div>
+                <div className="col-4">
+
                 </div>
             </div>
             <ToastContainer autoClose={2000} className="toast-position"/>

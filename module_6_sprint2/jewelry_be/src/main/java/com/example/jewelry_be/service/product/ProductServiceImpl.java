@@ -3,6 +3,7 @@ package com.example.jewelry_be.service.product;
 import com.example.jewelry_be.model.Product;
 import com.example.jewelry_be.model.Size;
 import com.example.jewelry_be.projection.DetailProductProjection;
+import com.example.jewelry_be.projection.ListProductProjection;
 import com.example.jewelry_be.repository.IProductRepository;
 import com.example.jewelry_be.repository.ISizeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,15 @@ public class ProductServiceImpl implements IProductService {
     @Autowired
     private ISizeRepository sizeRepository;
     @Override
-    public Page<Product> getAllProduct(Pageable pageable, Integer trademark, Integer material, Integer typeProduct) {
+    public Page<ListProductProjection> getAllProduct(Pageable pageable, Integer trademark, Integer material, Integer typeProduct) {
         return productRepository.findAllProduct(pageable,trademark,material,typeProduct);
     }
 
     @Override
-    public Page<Product> getAll(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public Page<ListProductProjection> getAll(Pageable pageable) {
+        return productRepository.findAllProduct(pageable);
     }
+
 
     @Override
     public DetailProductProjection findProductById(Integer id) {
@@ -41,6 +43,12 @@ public class ProductServiceImpl implements IProductService {
     public List<Size> getAllSize() {
         return sizeRepository.findAll();
     }
+
+    @Override
+    public List<Product> getAllProduct() {
+        return productRepository.findAll();
+    }
+
 
     @Override
     public boolean addProduct(Product product) {
