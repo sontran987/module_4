@@ -1,6 +1,6 @@
 import "../css/DetailProduct.css"
 import Header from "./Header";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Footer from "./Footer";
 import {useEffect, useState} from "react";
 import {
@@ -22,6 +22,7 @@ import StarRatings from "react-star-ratings/build/star-ratings";
 
 export default function DetailProduct() {
     const param = useParams();
+    const navigate = useNavigate();
     const [detailProduct, setDetailProduct] = useState([]);
     const [sizes, setSizes] = useState([]);
     const [images, setImages] = useState([]);
@@ -131,27 +132,33 @@ export default function DetailProduct() {
     }
 
     const getAllDetail = async () => {
-        const data = await findDetailProduct(param.id);
-        const data1 = await getSize();
-        const data3 = await getRating(data.productId);
-        const temp = data.image.split(",");
+        try {
+            const data = await findDetailProduct(param.id);
+            const data1 = await getSize();
+            const data3 = await getRating(data.productId);
+            const temp = data.image.split(",");
 
-        const data2 = await checkUserPurchase(localStorage.getItem("id"), data.productId);
-        if (data2.status === 204) {
-            setShowEvaluate(false);
-        } else {
-            setShowEvaluate(true);
+            const data2 = await checkUserPurchase(localStorage.getItem("id"), data.productId);
+            if (data2.status === 204) {
+                setShowEvaluate(false);
+            } else {
+                setShowEvaluate(true);
+            }
+
+            setDetailProduct(data);
+            setComment(data3);
+            setCart(prevState => ({
+                ...prevState,
+                productId: data.productId,
+                quantity: quantity
+            }))
+            setImages(temp);
+            setSizes(data1);
+        }catch (error){
+            Swal.fire("You are not logged in","","error")
+            navigate("/sign-in");
         }
 
-        setDetailProduct(data);
-        setComment(data3);
-        setCart(prevState => ({
-            ...prevState,
-            productId: data.productId,
-            quantity: quantity
-        }))
-        setImages(temp);
-        setSizes(data1);
     };
     useEffect(() => {
         document.title = 'Jewelry - Detail product'
@@ -315,7 +322,7 @@ export default function DetailProduct() {
             {showEvaluate ? (
                 <div className="row">
                     <div className="col-8">
-                        <h3>Comment</h3>
+                        <h3>Write a comment</h3>
                         <div className="mt-5">
                          <textarea className="form-control thanh-son-comment "
                                    value={inputValue}

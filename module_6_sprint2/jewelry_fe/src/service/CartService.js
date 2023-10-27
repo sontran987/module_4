@@ -35,6 +35,6 @@ export async function checkQuantityProduct(userid){
     const message = await axios.get("/api/order/check-quantity",{params:{
             userId:userid
         }});
-    console.log(message);
+    // console.log(message);
     return message;
 }

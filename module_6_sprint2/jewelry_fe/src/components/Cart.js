@@ -25,12 +25,16 @@ export default function Cart() {
         if (event.quantity > 1) {
             await updateQuantityProduct(event.quantity - 1, event.id);
             setIsUpdated(!isUpdated);
+        }else {
+           await Swal.fire("The quantity cannot go to 0", "","warning");
         }
     }
     const handlePlus = async (cart) => {
         if (cart.quantity < cart.product.quantity) {
             await updateQuantityProduct(cart.quantity + 1, cart.id);
             setIsUpdated(!isUpdated);
+        }else {
+           await Swal.fire("The quantity of goods in stock is not enough","","warning")
         }
     }
     const checkDeleteProductOnCartById = async (cart) => {
@@ -50,8 +54,6 @@ export default function Cart() {
             setCheckOut(true);
             renderPaypal(value);
         }
-
-
     }
 
     const renderPaypal = (value) => {
@@ -75,36 +77,30 @@ export default function Cart() {
                 },
                 onApprove: async (data, actions) => {
                     const total = parseFloat(totalPrice);
-                    try {
-                        const idUser = localStorage.getItem("id");
-                        const data = await checkQuantityProduct(idUser);
-                        const order = await actions.order.capture();
-
-                        // after we're done with paypal
-                        let deletedCartIDs = [];
-                        const userId = localStorage.getItem("id");
-                        {
-                            carts.forEach((cart) => {
-                                deletedCartIDs.push(cart.id)
-                            })
-                        }
-                        // console.log(deletedCartIDs);
-                        const res = await createNewOrder(
-                            userId,
-                            value.note,
-                            deletedCartIDs
-                        );
-                        navigate("/success", {
-                            state: {
-                                purchaseDetails: res.data,
-                                totalPrice: total,
-                            },
-                        });
-                    } catch (error) {
-                        await Swal.fire(`${error.response.data}`, "", "error");
-
+                    const idUser = localStorage.getItem("id");
+                    const data1 = await checkQuantityProduct(idUser);
+                    const order = await actions.order.capture();
+                    // after we're done with paypal
+                    let deletedCartIDs = [];
+                    const userId = localStorage.getItem("id");
+                    {
+                        carts.forEach((cart) => {
+                            deletedCartIDs.push(cart.id)
+                        })
                     }
+                    const res = await createNewOrder(
+                        userId,
+                        value.note,
+                        deletedCartIDs
+                    );
 
+                    navigate("/success", {
+                        state: {
+                            purchaseDetails: res.data,
+                            totalPrice: total,
+                        },
+                    });
+                    
                 },
                 onError: (err) => {
                     // console.log(err);
@@ -162,12 +158,12 @@ export default function Cart() {
                                                 }}
                                             />
                                             <div style={{
-                                                           width: "30px",
-                                                           height: "20px",
-                                                           border: "1px white",
-                                                           borderRadius: "5px",
-                                                           textAlign: "center "
-                                                       }}>{cart.quantity}</div>
+                                                width: "30px",
+                                                height: "20px",
+                                                border: "1px white",
+                                                borderRadius: "5px",
+                                                textAlign: "center "
+                                            }}>{cart.quantity}</div>
                                             <input
                                                 type="button"
                                                 defaultValue="+"
@@ -180,7 +176,7 @@ export default function Cart() {
                                     </div>
                                     <div className="col ms-4">{cart.size.sizeName}</div>
                                     <div
-                                        className="col">${Number.parseInt(cart.product.price * cart.size.conversionRate)}
+                                        className="col">${Number.parseInt(cart.product.price * cart.size.conversionRate * cart.quantity).toFixed(2)}
                                         <span className="close">
                                         <button className="btn-cart" onClick={() => {
                                             checkDeleteProductOnCartById(cart).then();
@@ -206,7 +202,7 @@ export default function Cart() {
                         <hr/>
                         <div className="row">
                             <div className="col">EXPECTED</div>
-                            <div className="col text-end">${totalPrice} </div>
+                            <div className="col text-end">${totalPrice.toFixed(2)} </div>
                         </div>
                         <Formik
                             initialValues={{
@@ -268,7 +264,7 @@ export default function Cart() {
                                 </div>
                                 <div className="row" style={{borderTop: "1px solid rgba(0,0,0,.1)", padding: "2vh 0"}}>
                                     <div className="col">TOTAL PRICE</div>
-                                    <div className="col text-end ">${totalPrice}</div>
+                                    <div className="col text-end ">${totalPrice.toFixed(2)}</div>
                                 </div>
                                 <button type={"submit"} className="btn-cart pay">PROCEED PAYMENT</button>
                             </Form>

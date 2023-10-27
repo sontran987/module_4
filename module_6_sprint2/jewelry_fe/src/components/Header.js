@@ -14,7 +14,6 @@ export default function Header() {
     const navigate = useNavigate();
     const [use, setUse] = useState(null);
     const cart = useSelector(state => state.cart);
-    const product = useSelector(state => state.product);
     const dispatch = useDispatch();
     const loginUser = async () => {
         const userId = localStorage.getItem("id");
@@ -28,11 +27,12 @@ export default function Header() {
         localStorage.removeItem("nameUser");
         localStorage.setItem("jwt", null);
         localStorage.setItem("role", null);
+        console.log(localStorage.getItem("role"))
         setUse(null);
         navigate("/");
         Swal.fire({
-            icon: 'info',
-            title: 'dang xuat thanh cong.',
+            icon: 'success',
+            title: 'Log out successfully',
             showConfirmButton: false,
             timer: 2000
         })
@@ -89,11 +89,14 @@ export default function Header() {
                                 }
 
                             </div>
-                            <NavLink to="/cart" className="py-2 d-none d-lg-inline-block position-relative "><img
-                                style={{opacity: "0.8"}}
-                                height={30} width={30} src={Cart}
-                                alt="thanh"/>
-                                <span className="cart-number">{cart.length}</span></NavLink>
+                            { use ?(
+                                <NavLink to="/cart" className="py-2 d-none d-lg-inline-block position-relative "><img
+                                    style={{opacity: "0.8"}}
+                                    height={30} width={30} src={Cart}
+                                    alt="thanh"/>
+                                    <span className="cart-number">{cart.length}</span></NavLink>):<div></div>
+                            }
+
                         </div>
                     </nav>
                 </div>
